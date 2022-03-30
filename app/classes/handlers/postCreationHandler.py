@@ -13,6 +13,7 @@ class postCreationHandler:
         self.parent = parent
 
         self.user = bD.user_name
+        self.default_image_path = "data/test/img/Ag02.png"
         self.image_path = "data/test/img/Ag02.png"
         self.image = None
         self.image_array = None
@@ -34,9 +35,9 @@ class postCreationHandler:
         # Image(source=self.image_path, size_hint=(1, None), size=(0, 300))
         try:
             if os.path.isfile(self.image_path): self.image = cv2.imread(self.image_path)  # read image
-            else: self.image = cv2.imread("data/test/img/Ag02.png")  # default image
+            else: self.image = cv2.imread(self.default_image_path)  # default image
         except:
-            self.image = cv2.imread("data/test/img/Ag02.png")  # default image
+            self.image = cv2.imread(self.default_image_path)  # default image
 
         self.image_array = imageConverter.image2array(self.image)  # converts the image to a numpy array
 
