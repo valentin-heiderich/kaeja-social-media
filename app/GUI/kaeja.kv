@@ -1,0 +1,80 @@
+KaejaWidget:
+
+
+<KaejaWidget@GridLayout>:
+
+    cols: 3
+    Image:
+        source: 'data/test/img/python.jpg'
+    Feed:
+    CreatePostWindow:
+
+<Settings>:
+    Image:
+        source: 'data/test/img/python.jpg'
+
+<Feed@BoxLayout>:
+    orientation: "vertical"
+    Label:
+        text: "Feed: "
+        size_hint: 1, 0.2
+    PostsWindow:
+
+<PostsWindow@ScrollView>:
+    Posts:
+        cols: 1
+        size_hint: 1, None
+        height: self.minimum_height
+
+<Posts>:
+    cols: 3
+
+<CreatePostWindow>:
+    orientation: "vertical"
+    Label:
+        text: "Create Post: "
+        size_hint: 1, 0.2
+    CreatePostInput:
+    Button:
+        text: "Share"
+        size_hint: 1, 0.2
+        on_press: root.share()
+        background_normal: ''
+        background_color: (0.2,0.2,0.2, 1)
+
+<CreatePostInput@GridLayout>:
+    cols: 2
+    Label:
+        text: "Image path: "
+        size_hint: 1, 0.1
+        background_color: (0.2,0.2,0.2, 1)
+        font_size: '15sp'
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    TextInput:
+        id: header_input
+        multiline: False
+        size_hint: 1, 0.1
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
+    Label:
+        text: "Content: "
+        size_hint: 1, 1
+        background_color: (0.2,0.2,0.2, 1)
+        font_size: '15sp'
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    TextInput:
+        id: content_input
+        multiline: True
+        size_hint: 1, 1
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)

@@ -1,0 +1,32 @@
+C:\Users\Megaport\PycharmProjects\kaeja-social-media\Python\Scripts\python.exe C:/Users/Megaport/PycharmProjects/kaeja-social-media/app/main.py
+[INFO   ] [Logger      ] Record log in C:\Users\Megaport\.kivy\logs\kivy_22-02-13_23.txt
+[INFO   ] [deps        ] Successfully imported "kivy_deps.angle" 0.3.1
+[INFO   ] [deps        ] Successfully imported "kivy_deps.glew" 0.3.0
+[INFO   ] [deps        ] Successfully imported "kivy_deps.sdl2" 0.4.4
+[INFO   ] [Kivy        ] v2.1.0.dev0
+[INFO   ] [Kivy        ] Installed at "C:\Users\Megaport\PycharmProjects\kaeja-social-media\Python\lib\site-packages\kivy\__init__.py"
+[INFO   ] [Python      ] v3.9.5 (tags/v3.9.5:0a7dcbd, May  3 2021, 17:27:52) [MSC v.1928 64 bit (AMD64)]
+[INFO   ] [Python      ] Interpreter at "C:\Users\Megaport\PycharmProjects\kaeja-social-media\Python\Scripts\python.exe"
+[INFO   ] [Logger      ] Purge log fired. Processing...
+[INFO   ] [Logger      ] Purge finished!
+[INFO   ] [Factory     ] 189 symbols loaded
+[INFO   ] [Image       ] Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] [Text        ] Provider: sdl2
+<app.classes.feed.feed object at 0x00000254EB05BEE0>
+[INFO   ] [Window      ] Provider: sdl2
+[INFO   ] [GL          ] Using the "OpenGL" graphics system
+[INFO   ] [GL          ] GLEW initialization succeeded
+[INFO   ] [GL          ] Backend used <glew>
+[INFO   ] [GL          ] OpenGL version <b'4.6.0 NVIDIA 510.10'>
+[INFO   ] [GL          ] OpenGL vendor <b'NVIDIA Corporation'>
+[INFO   ] [GL          ] OpenGL renderer <b'NVIDIA GeForce GTX 1660/PCIe/SSE2'>
+[INFO   ] [GL          ] OpenGL parsed version: 4, 6
+[INFO   ] [GL          ] Shading version <b'4.60 NVIDIA'>
+[INFO   ] [GL          ] Texture max size <32768>
+[INFO   ] [GL          ] Texture max units <32>
+[INFO   ] [Window      ] auto add sdl2 input provider
+[INFO   ] [Window      ] virtual keyboard not allowed, single mode, not docked
+[INFO   ] [GL          ] NPOT texture support is available
+[INFO   ] [GL          ] Unpack subimage support is available
+[INFO   ] [Base        ] Start application main loop
+['_trigger_layout', '_context', '_disabled_value', '_disabled_count', 'canvas', '_proxy_ref', '__module__', 'share', '__doc__', 'spacing', 'padding', 'orientation', 'minimum_width', 'minimum_height', 'minimum_size', '__init__', '_iterate_layout', 'do_layout', 'add_widget', 'remove_widget', 'layout_hint_with_bounds', '__metaclass__', '__events__', 'proxy_ref', '__hash__', 'apply_class_lang_rules', 'collide_point', 'collide_widget', 'on_motion', 'on_touch_down', 'on_touch_move', 'on_touch_up', 'on_kv_post', 'clear_widgets', '_update_motion_filter', '_find_index_in_motion_filter', 'register_for_motion_event', 'unregister_for_motion_event', 'export_to_png', 'export_as_image', 'get_root_window', 'get_parent_window', '_walk', 'walk', '_walk_reverse', 'walk_reverse', 'to_widget', 'to_window', 'to_parent', 'to_local', '_apply_transform', 'get_window_matrix', 'x', 'y', 'width', 'height', 'pos', 'size', 'get_right', 'set_right', 'right', 'get_top', 'set_top', 'top', 'get_center_x', 'set_center_x', 'center_x', 'get_center_y', 'set_center_y', 'center_y', 'center', 'cls', 'children', 'parent', 'size_hint_x', 'size_hint_y', 'size_hint', 'pos_hint', 'size_hint_min_x', 'size_hint_min_y', 'size_hint_min', 'size_hint_max_x', 'size_hint_max_y', 'size_hint_max', 'ids', 'opacity', 'on_opacity', 'get_disabled', 'set_disabled', 'inc_disabled', 'dec_disabled', 'disabled', 'motion_filter', '__dict__', '__new__', 'register_event_type', 'unregister_event_types', 'unregister_event_type', 'is_event_type', 'bind', 'unbind', 'fbind', 'funbind', 'unbind_uid', 'get_property_observers', 'events', 'dispatch', 'dispatch_generic', 'dispatch_children', '__proxy_setter', '__proxy_getter', 'setter', 'getter', 'property', 'properties', 'create_property', 'apply_property', '__self__', '_kwargs_applied_init', '__pyx_vtable__', '__reduce__', '__setstate__', 'uid', '__repr__', '__str__', '__getattribute__', '__setattr__', '__delattr__', '__lt__', '__le__', '__eq__', '__ne__', '__gt__', '__ge__', '__reduce_ex__', '__subclasshook__', '__init_subclass__', '__format__', '__sizeof__', '__dir__', '__class__']
