@@ -1,5 +1,8 @@
 import pickle
+import os
+
 import app.data.basicData as bD
+import app.classes.logging.log as log
 
 
 class send:
@@ -21,6 +24,10 @@ class send:
         data_len = str(len(pickle.dumps(self.data))).encode(self.FORMAT)
         if len(data_len) > self.HEADER: return False
         data_len += b' ' * (self.HEADER - len(data_len))
-        self.socket.send(data_len)
-        self.socket.send(pickle.dumps(self.data))
+        try:
+            self.socket.send(data_len)
+            self.socket.send(pickle.dumps(self.data))
+        except:
+            log.log(os.path.basename(__file__), log.csh, "Error sending data, server may be down")
+            bD.connected = False
         return True

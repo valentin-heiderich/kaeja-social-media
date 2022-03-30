@@ -1,8 +1,10 @@
 import app.data.basicData as bD
-import pickle
 import app.classes.logging.log as log
+
+import pickle
 import threading
 import os
+import time
 
 
 class recv:
@@ -18,9 +20,12 @@ class recv:
 
     def loop(self):
         """main recv loop"""
-        while self.connected:
-            msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
-            msg = pickle.loads(self.cs.recv(msg_len))
-            log.log(os.path.basename(__file__), log.csh, f"Received message from Server ({self.addr}): {msg}")
-            if isinstance(msg, list):
-                bD.recv_posts = msg
+        while bD.connected:
+            try:
+                msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
+                msg = pickle.loads(self.cs.recv(msg_len))
+                log.log(os.path.basename(__file__), log.csh, f"Received message from Server ({self.addr}): {msg}")
+                if isinstance(msg, list):
+                    bD.recv_posts = msg
+            except:
+                pass
