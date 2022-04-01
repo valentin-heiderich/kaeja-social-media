@@ -1,9 +1,4 @@
-from functools import partial
-from kivy.clock import Clock
-
-import app.classes.server_client_conn.recv as re
-import app.classes.server_client_conn.send as send
-import app.classes.server_client_conn.reconnectHandler as reconnectHandler
+import app.classes.server_client_conn.ClientServerHandler as ClientServerHandler
 import app.classes.logging.log as log
 import app.data.basicData as bD
 
@@ -24,11 +19,10 @@ class updateFeed:
         self.connecting = True
         self.cs = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-        self.recv = threading.Thread(target=re.recv, args=(self.cs, self.addr))
-        self.reconnectHandler = threading.Thread(target=reconnectHandler.reconnectHandler)
-
         self.FORMAT = "utf-8"
         self.HEADER = 1024
+
+        self.connectionHandler = threading.Thread(target=ClientServerHandler.ClientServerHandler, args=(self.cs, self.addr))
 
         self.establish_connection()
         self.event = None
@@ -48,11 +42,6 @@ class updateFeed:
         bD.socket = self.cs
         bD.address = self.addr
         bD.connected = True
+        bD.client_id = self.id
 
-        self.event = Clock.schedule_interval(partial(self.ask_update), 5)
-        self.recv.start()
-        self.reconnectHandler.start()
-
-    def ask_update(self, dt):
-        """ask server for newest posts"""
-        send.send(self.cs, self.id)
+        self.connectionHandler.start()

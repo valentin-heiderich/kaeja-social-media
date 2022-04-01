@@ -21,7 +21,7 @@ class recv:
     def loop(self):
         """main recv loop"""
         while True:
-            if not bD.connected: return
+            if not bD.connected: raise Exception("Server disconnected, killing task...")
             try:
                 msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
                 msg = pickle.loads(self.cs.recv(msg_len))
@@ -29,4 +29,4 @@ class recv:
                 if isinstance(msg, list):
                     bD.recv_posts = msg
             except:
-                pass
+                raise Exception("Could not receive message from Server")
