@@ -1,3 +1,6 @@
+from kivy.clock import Clock
+from functools import partial
+
 import app.classes.server_client_conn.recv as re
 import app.classes.server_client_conn.reconnectHandler as reconnectHandler
 import app.classes.logging.log as logger
@@ -15,26 +18,28 @@ class ClientServerHandler:
 
         self.client_socket = client_socket
         self.server_address = server_address
+        self.client_id = bD.client_id
 
         self.recv = None
         self.reconnectHandler = None
 
         self.declare_threads()
-        self.start_threads()
         self.handle_runtime()
+
+        self.update = self.event = Clock.schedule_interval(partial(self.ask_for_update), 5)
 
     def declare_threads(self):
         self.recv = threading.Thread(target=re.recv, args=(self.client_socket, self.server_address))
         self.reconnectHandler = threading.Thread(target=reconnectHandler.reconnectHandler)
+        self.start_threads()
 
     def start_threads(self):
         self.recv.start()
         self.reconnectHandler.start()
 
     def handle_runtime(self):
-        while bD.connected:
-            self.client_socket = bD.socket
-            send.send(None, bD.client_id)
-            time.sleep(5)
+        pass
 
+    def ask_for_update(self, dt):
+        send.send(None, self.client_id)
 

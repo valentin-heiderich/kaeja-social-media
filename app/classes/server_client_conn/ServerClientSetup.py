@@ -17,6 +17,7 @@ class updateFeed:
         self.addr = ('127.0.0.1', 8775)
         self.id = None
         self.connecting = True
+
         self.cs = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         self.FORMAT = "utf-8"
@@ -34,7 +35,7 @@ class updateFeed:
                 self.cs.connect(self.addr)
                 self.connecting = False
             except:
-                return False
+                return
 
         msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
         self.id = pickle.loads(self.cs.recv(msg_len))
