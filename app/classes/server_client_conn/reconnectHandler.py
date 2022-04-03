@@ -16,11 +16,12 @@ class reconnectHandler:
         self.loop()
 
     def loop(self):
-        while not bD.connected:
-            logger.log(os.path.basename(__file__), logger.csh, f"Trying to reconnect to server {bD.connected}")
+        while True:
+            if bD.connected:
+                logger.log(os.path.basename(__file__), logger.csh, f"Trying to reconnect to server {bD.connected}")
+                return
             try:
                 socketChanger()
-                bD.connected = True
             except:
-                raise Exception("Could not connect to server")
+                logger.log(os.path.basename(__file__), logger.csh, f"Failed to connect to server")
             time.sleep(5)

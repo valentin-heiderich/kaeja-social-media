@@ -28,6 +28,8 @@ class updateFeed:
         self.establish_connection()
         self.event = None
 
+        return
+
     def establish_connection(self):
         """Establish a connection between a Server and the client"""
         while self.connecting:
@@ -46,3 +48,5 @@ class updateFeed:
         bD.client_id = self.id
 
         self.connectionHandler.start()
+
+        return

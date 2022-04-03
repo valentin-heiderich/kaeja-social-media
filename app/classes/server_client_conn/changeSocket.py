@@ -8,13 +8,16 @@ class socketChanger:
         self.currentSocket = bD.socket
         self.newSocket = None
 
+        self.change_socket()
+
     def change_socket(self):
         self.currentSocket.close()
         self.newSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:
             self.newSocket.connect(bD.address)
+            self.currentSocket = self.newSocket
+            bD.socket = self.currentSocket
+            bD.connected = True
         except:
-            raise Exception("Could not connect to server")
-        self.currentSocket = self.newSocket
-        bD.socket = self.currentSocket
+            return
         return
