@@ -19,15 +19,20 @@ class recv:
         self.loop()
 
     def loop(self):
-        """main recv loop"""
         while True:
-            if not bD.connected: log.log(os.path.basename(__file__), log.csh, f"no server connection {bD.connected}")
-            self.cs = bD.socket
-            try:
-                msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
-                msg = pickle.loads(self.cs.recv(msg_len))
-                log.log(os.path.basename(__file__), log.csh, f"Received message from Server ({self.addr}): {msg}")
-                if isinstance(msg, list):
-                    bD.recv_posts = msg
-            except:
+            self.recv()
+
+    def recv(self):
+        """main recv loop"""
+        if not bD.connected: return
+        self.cs = bD.socket
+        try:
+            msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
+            msg = pickle.loads(self.cs.recv(msg_len))
+            log.log(os.path.basename(__file__), log.csh, f"Received message from Server ({self.addr}): {msg}")
+            if isinstance(msg, list):
+                bD.recv_posts = msg
+            else:
                 pass
+        except:
+            pass
