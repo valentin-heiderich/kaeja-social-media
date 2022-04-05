@@ -18,7 +18,6 @@ class ClientServerHandler:
 
         self.client_socket = client_socket
         self.server_address = server_address
-        self.client_id = bD.client_id
 
         self.recv = None
         self.reconnectHandler = None
@@ -41,5 +40,4 @@ class ClientServerHandler:
         pass
 
     def ask_for_update(self, dt):
-        send.send(None, self.client_id)
-
+        send.send(None, bD.client_id)
