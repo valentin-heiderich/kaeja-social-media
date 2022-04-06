@@ -35,7 +35,7 @@ class Posts(GridLayout):
 
     def update(self):
         update_feed(self)
-        event = Clock.schedule_interval(partial(update_feed, self), 10)
+        event = Clock.schedule_interval(partial(update_feed, self), 3)
 
 
 class KaejaApp(App):

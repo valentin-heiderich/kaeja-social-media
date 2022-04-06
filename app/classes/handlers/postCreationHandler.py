@@ -23,7 +23,7 @@ class postCreationHandler:
 
         self.read()
         self.create_post()
-        # self.write()
+        self.write()
         self.send()
         self.finish()
 
