@@ -1,6 +1,6 @@
 colored_label = '''
 <ColoredLabel>:
-    size: (1,1)
+    size: self.texture_size
     pos: (0,0)
     background_color: (0.2,0.2,0.2, 1)
     canvas.before:
