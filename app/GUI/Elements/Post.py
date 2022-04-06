@@ -1,27 +1,14 @@
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.image import Image
 from kivy.graphics.texture import Texture
 from kivy.uix.label import Label
 from kivy.lang import Builder
 
 import app.classes.converters.images as imageConverter
+from app.GUI.Desing.py.Label import colored_label
 
 import cv2
 
-kv = '''
-<ColoredLabel>:
-    size: (1,1)
-    pos: (0,0)
-    background_color: (0.2,0.2,0.2, 1)
-    canvas.before:
-        Color:
-            rgba: self.background_color
-        Rectangle:
-            pos: self.pos
-            size: self.size
-    '''
-
-Builder.load_string(kv)
+Builder.load_string(colored_label)
 
 
 class ColoredLabel(Label):
@@ -39,7 +26,7 @@ class Post:
         self.texture = Texture.create(size=(self.image.width, self.image.height))
         self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
 
-        content = ColoredLabel(text=str(post.content), size_hint=(1, None))
+        content = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=(0.5, 0.2, 0.2, 0.5))
         content.bind(texture_size=content.setter('size'))
 
         header = ColoredLabel(text=str(post.header), size_hint=(1, None))
