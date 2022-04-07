@@ -26,12 +26,15 @@ class Post:
         self.texture = Texture.create(size=(self.image.width, self.image.height))
         self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
 
-        content = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=(0.5, 0.2, 0.2, 0.5))
+        content = ColoredLabel(text=str(post.content), size_hint=(1, None))
         content.bind(texture_size=content.setter('size'))
 
         header = ColoredLabel(text=str(post.header), size_hint=(1, None))
         header.bind(texture_size=header.setter('size'))
 
+        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=(1, 0.8, 0.2, 1))
+
         widget.add_widget(header)
-        widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 400)))
+        widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
         widget.add_widget(content)
+        widget.add_widget(sizer)
