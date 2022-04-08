@@ -32,7 +32,7 @@ class Post:
         header = ColoredLabel(text=str(post.header), size_hint=(1, None))
         header.bind(texture_size=header.setter('size'))
 
-        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=(1, 0.8, 0.2, 1))
+        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=(1, 0.8, 0.2, 0.7))
 
         widget.add_widget(header)
         widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
