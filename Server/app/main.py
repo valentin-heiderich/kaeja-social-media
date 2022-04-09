@@ -12,7 +12,7 @@ import Server.logging.log as log
 log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_addr = ('127.0.0.1', 8775)
+server_addr = bD.server_address
 server_socket.bind(server_addr)
 server_socket.listen(5)
 

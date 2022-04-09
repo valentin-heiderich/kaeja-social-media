@@ -14,7 +14,7 @@ class updateFeed:
         """Create all vars and start functions/files"""
         log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
         self.start_time = time.time()
-        self.addr = ('127.0.0.1', 8775)
+        self.server_addr = bD.server_address
         self.id = None
         self.connecting = True
 
@@ -23,7 +23,7 @@ class updateFeed:
         self.FORMAT = "utf-8"
         self.HEADER = 1024
 
-        self.connectionHandler = threading.Thread(target=ClientServerHandler.ClientServerHandler, args=(self.cs, self.addr))
+        self.connectionHandler = threading.Thread(target=ClientServerHandler.ClientServerHandler, args=(self.cs, self.server_addr))
 
         self.establish_connection()
         self.event = None
@@ -34,7 +34,7 @@ class updateFeed:
         """Establish a connection between a Server and the client"""
         while self.connecting:
             try:
-                self.cs.connect(self.addr)
+                self.cs.connect(self.server_addr)
                 self.connecting = False
             except:
                 return
@@ -43,7 +43,7 @@ class updateFeed:
         self.id = pickle.loads(self.cs.recv(msg_len))
 
         bD.socket = self.cs
-        bD.address = self.addr
+        bD.address = self.server_addr
         bD.connected = True
         bD.client_id = self.id
 
