@@ -29,7 +29,7 @@ class recv:
                 msg = pickle.loads(bD.socket.recv(msg_len))
                 log.log(os.path.basename(__file__), log.csh, f"Received message from Server ({self.addr}): {msg}")
                 if isinstance(msg, list):
-                    bD.recv_posts = msg
+                    bD.recv_posts = pickle.dumps(msg)
                 else:
                     pass
             except:

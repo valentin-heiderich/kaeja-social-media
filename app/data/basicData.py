@@ -1,10 +1,8 @@
 import os
+import pickle
 
 # runtime data
-feed = []
-new_posts = []
-recv_posts = []
-post_widgets = []
+recv_posts = pickle.dumps([])
 
 socket = None
 address = None

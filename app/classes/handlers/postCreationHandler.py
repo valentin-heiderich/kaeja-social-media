@@ -23,7 +23,7 @@ class postCreationHandler:
 
         self.read()
         self.create_post()
-        self.write()
+        # self.write()
         self.send()
         self.finish()
 
@@ -44,7 +44,8 @@ class postCreationHandler:
         self.post = create_post(image=self.image_array, content=self.content, bvr=0)  # creates the post
 
     def write(self):
-        bD.new_posts.append(self.post)
+        # bD.new_posts.append(self.post)
+        pass
 
     def send(self):
         send.send(None, self.post)
