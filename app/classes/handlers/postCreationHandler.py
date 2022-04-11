@@ -48,7 +48,7 @@ class postCreationHandler:
         pass
 
     def send(self):
-        send.send(None, self.post)
+        send.send(None, self.post)  # sends the post to the server
 
     def finish(self):
         self.parent.children[1].ids.header_input.text = ""
