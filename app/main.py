@@ -1,9 +1,7 @@
 import app.redirects.toClasses as toClasses
 import app.redirects.toGUI as toGUI
-import app.redirects.toData as toData
 import app.classes.server_client_conn.ServerClientSetup as uF
 from app.classes.tts.handleTts import TtSHandler
-import time
 import threading
 import app.classes.logging.log as log
 import os
