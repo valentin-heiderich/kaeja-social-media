@@ -20,17 +20,6 @@ TtS = threading.Thread(target=TtSHandler)
 posts = []
 feed = toClasses.feed_class(posts)
 
-"""create test posts"""
-
-
-def test():
-    for i in range(0, 100):
-        log.log(os.path.basename(__file__), log.pc, f"Creating post class for post: {str(i)} {time.asctime()}")
-        post = toClasses.create_post(image='data/test/img/Ag02.png', content="testi", bvr=0)
-        posts.append(post)
-        toData.new_post(post)
-
-
 """start .py scripts"""
 s_conn.start()
 TtS.start()
