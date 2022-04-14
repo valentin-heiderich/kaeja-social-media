@@ -5,6 +5,7 @@ from kivy.lang import Builder
 
 import app.classes.converters.images as imageConverter
 from app.GUI.Desing.py.Label import colored_label
+import app.data.basicData as bD
 
 import cv2
 
@@ -26,13 +27,13 @@ class Post:
         self.texture = Texture.create(size=(self.image.width, self.image.height))
         self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
 
-        content = ColoredLabel(text=str(post.content), size_hint=(1, None))
+        content = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=bD.post_background_color)
         content.bind(texture_size=content.setter('size'))
 
-        header = ColoredLabel(text=str(post.header), size_hint=(1, None))
+        header = ColoredLabel(text=str(post.header), size_hint=(1, None), background_color=bD.post_background_color)
         header.bind(texture_size=header.setter('size'))
 
-        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=(1, 0.8, 0.2, 0.7))
+        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
 
         widget.add_widget(header)
         widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
