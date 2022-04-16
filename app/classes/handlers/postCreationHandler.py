@@ -54,7 +54,7 @@ class postCreationHandler:
             self.image_array = imageConverter.image2array(self.image)  # convert the image to an array
 
         def get_default_image():
-            self.image = cv2.imread(self.default_image_path)  # read the image
+            self.image = cv2.imread(self.default_image_path)  # read the default image
             self.post_types.append(bD.POST_TYPE_IMAGE)  # add the post type to the post types list
             self.image_array = imageConverter.image2array(self.image)  # convert the image to an array
 
