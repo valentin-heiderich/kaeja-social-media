@@ -19,23 +19,31 @@ class ColoredLabel(Label):
 class Post:
     """Add widgets to Grid Layout"""
     def __init__(self, widget, post):
-        self.image_array = post.image
-        self.image_array = cv2.cvtColor(self.image_array, cv2.COLOR_BGR2RGB)
-        self.image_array = cv2.flip(self.image_array, 0)
-        self.image = imageConverter.array2image(self.image_array)
+        """Create a post with the given data"""
 
-        self.texture = Texture.create(size=(self.image.width, self.image.height))
-        self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
-
-        content = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=bD.post_background_color)
-        content.bind(texture_size=content.setter('size'))
-
+        '''header'''
         header = ColoredLabel(text=str(post.header), size_hint=(1, None), background_color=bD.post_background_color)
         header.bind(texture_size=header.setter('size'))
-
-        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
-
         widget.add_widget(header)
-        widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
-        widget.add_widget(content)
+
+        '''image'''
+        if bD.POST_TYPE_IMAGE in post.post_type:
+            self.image_array = post.image
+            self.image_array = cv2.cvtColor(self.image_array, cv2.COLOR_BGR2RGB)
+            self.image_array = cv2.flip(self.image_array, 0)
+            self.image = imageConverter.array2image(self.image_array)
+
+            self.texture = Texture.create(size=(self.image.width, self.image.height))
+            self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+
+            widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
+
+        '''text'''
+        if bD.POST_TYPE_TEXT in post.post_type:
+            text = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=bD.post_background_color)
+            text.bind(texture_size=text.setter('size'))
+            widget.add_widget(text)
+
+        '''sizer'''
+        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
         widget.add_widget(sizer)
