@@ -12,4 +12,4 @@ Love you all, thanks <3
 
 
 #YT:
-https://www.youtube.com/watch?v=tB32m2WZ9Mw&t=67s
+https://www.youtube.com/channel/UCH51tv_9PaIlcG7unHqFZlg
