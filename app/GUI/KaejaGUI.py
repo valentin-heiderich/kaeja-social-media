@@ -20,11 +20,16 @@ class CreatePostWindow(BoxLayout):
     def share(self):
         """Share post"""
         handler = postCreationHandler(self)
-        # update_feed(self.parent.children[1].children[0].children[0]) #for seeing the new post instantly (generating graphic bugs)
+
+    def add_server(self):
+        """Add server"""
+        pass
 
 
-class Settings(BoxLayout):
-    pass
+class KaejaServers(BoxLayout):
+
+    def add_server(self):
+        print("add server button pressed")
 
 
 class Posts(GridLayout):

@@ -11,23 +11,56 @@ App:
 <KaejaWidget@GridLayout>:
 
     cols: 3
-    KaejaSettings:
+    KaejaServers:
+        size_hint: 0.2, 1
+        height: self.minimum_height
     Feed:
-    CreatePostWindow:
 
-<KaejaSettings@BoxLayout>:
+<KaejaServers@BoxLayout>:
     orientation: 'vertical'
-    Image:
-        source: 'data/test/img/python01.png'
+    Label:
+        text: 'Joined Servers:'
+        size_hint: 1, 0.05
+        background_color: 0.4, 0.4, 0.4, 1
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    ServerList:
+    Button:
+        text: 'Add Server'
+        size_hint: 1, 0.1
+        on_press: root.add_server()
+        background_normal: ''
+        background_down: ''
+        background_color: 0.4, 0.4, 0.4, 1
+
+
+<ServerList@ScrollView>:
+    do_scroll_x: False
+    do_scroll_y: True
 
 <Feed@BoxLayout>:
     orientation: "vertical"
     Label:
-        text: "Feed: "
-        size_hint: 1, 0.2
+        text: "Chat: "
+        size_hint: 1, 0.05
+        background_color: 0.4, 0.4, 0.4, 1
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
     PostsWindow:
+    CreatePostWindow:
+        size_hint: 1, 0.1
+        height: self.minimum_height
 
 <PostsWindow@ScrollView>:
+    do_scroll_y: True
     Posts:
         cols: 1
         size_hint: 1, None
@@ -37,51 +70,31 @@ App:
     cols: 3
 
 <CreatePostWindow>:
-    orientation: "vertical"
-    Label:
-        text: "Create Post: "
-        size_hint: 1, 0.2
+    orientation: "horizontal"
     CreatePostInput:
     Button:
-        text: "Share"
-        size_hint: 1, 0.2
+        size_hint: 0.1, 1
         on_press: root.share()
-        background_normal: ''
-        background_color: (0.2,0.2,0.2, 1)
+        background_normal: 'data/Design/Icons/ShareBtn01.png'
+        background_down: 'data/Design/Icons/ShareBtn01.png'
+        background_color: 0.4, 0.4, 0.4, 1
 
 <CreatePostInput@GridLayout>:
-    cols: 2
-    Label:
-        text: "Image path: "
-        size_hint: 1, 0.1
-        background_color: (0.2,0.2,0.2, 1)
-        font_size: '15sp'
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
+    rows: 2
     TextInput:
         id: header_input
+        hint_text: 'specify an image path if you want to share an image'
         multiline: False
-        size_hint: 1, 0.1
+        size_hint: 1, None
+        height: self.minimum_height
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
-    Label:
-        text: "Content: "
-        size_hint: 1, 1
-        background_color: (0.2,0.2,0.2, 1)
-        font_size: '15sp'
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
     TextInput:
         id: content_input
+        hint_text: 'Type your feelings here...'
         multiline: True
-        size_hint: 1, 1
+        auto_indent: True
+        size_hint: 1, None
+        height: self.minimum_height
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
