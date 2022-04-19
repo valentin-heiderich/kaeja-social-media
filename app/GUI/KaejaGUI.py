@@ -12,8 +12,10 @@ from app.classes.handlers.postCreationHandler import postCreationHandler
 import threading
 import os
 
-Window.size = (960, 540)
+Window.size = (1280, 720)
 Window.minimum_width, Window.minimum_height = Window.size
+Window.pos = (0, 0)
+Window.maximize()
 
 
 class CreatePostWindow(BoxLayout):

@@ -22,7 +22,7 @@ class Post:
         """Create a post with the given data"""
 
         '''header'''
-        header = ColoredLabel(text=str(post.header), size_hint=(1, None), background_color=bD.post_background_color)
+        header = ColoredLabel(text=str(post.header), size_hint=(1, None), background_color=(0.1, 0.1, 0.1, 1))
         header.bind(texture_size=header.setter('size'))
         widget.add_widget(header)
 

@@ -2,7 +2,7 @@ App:
 
 <App@FloatLayout>
     Image:
-        source: 'data/Design/Backgrounds/03.png'
+        source: 'data/Design/Backgrounds/01.png'
         allow_stretch: True
         keep_ratio: False
     KaejaWidget:
@@ -72,6 +72,7 @@ App:
 <CreatePostWindow>:
     orientation: "horizontal"
     CreatePostInput:
+        height: self.minimum_height
     Button:
         size_hint: 0.1, 1
         text: "Send"
@@ -90,12 +91,19 @@ App:
         height: self.minimum_height
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
+    ContentInput:
+
+<ContentInput@ScrollView>:
+    id: scroll_view
+    do_scroll_x: False
+    do_scroll_y: True
     TextInput:
         id: content_input
         hint_text: 'Type your feelings here...'
         multiline: True
-        auto_indent: True
+        auto_indent: False
+        scroll_from_swipe: True
         size_hint: 1, None
-        height: self.minimum_height
+        height: max(self.minimum_height, scroll_view.height)
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
