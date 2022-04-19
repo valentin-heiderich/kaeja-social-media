@@ -2,7 +2,7 @@ App:
 
 <App@FloatLayout>
     Image:
-        source: 'data/Design/Backgrounds/01.png'
+        source: 'data/Design/Backgrounds/03.png'
         allow_stretch: True
         keep_ratio: False
     KaejaWidget:
@@ -14,6 +14,15 @@ App:
     KaejaServers:
         size_hint: 0.2, 1
         height: self.minimum_height
+    Label:
+        background_color: 0.2, 0.2, 0.2, 1
+        size_hint: 0.005, 1
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
     Feed:
 
 <KaejaServers@BoxLayout>:
