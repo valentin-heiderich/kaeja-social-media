@@ -4,7 +4,7 @@ from kivy.uix.label import Label
 from kivy.lang import Builder
 
 import app.classes.converters.images as imageConverter
-from app.GUI.Desing.py.Label import colored_label
+from app.GUI.Design.py.Label import colored_label
 import app.data.basicData as bD
 
 import cv2

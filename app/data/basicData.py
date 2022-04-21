@@ -3,6 +3,7 @@ import pickle
 
 # runtime data
 recv_posts = pickle.dumps([])
+server_list = pickle.dumps([])
 
 socket = None
 address = None

@@ -14,7 +14,7 @@ class postCreationHandler:
 
         self.user = bD.user_name
 
-        self.use_default_image = False
+        self.use_default_image = True
         self.default_image_path = "data/test/img/Ag02.png"
         self.image_path = ""
         self.image = None
@@ -43,7 +43,7 @@ class postCreationHandler:
     def check_input(self):
         if (self.content == "" and self.image_path == "") or self.content == self.not_valid_msg:
             self.valid_input = False
-            self.parent.children[1].ids.content_input.text = self.not_valid_msg
+            self.parent.children[1].children[0].ids.content_input.text = self.not_valid_msg
 
     def create_post(self):
         if not self.valid_input: return  # if the input is not valid, do not create a post
