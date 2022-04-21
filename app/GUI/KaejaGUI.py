@@ -7,7 +7,9 @@ from kivy.core.window import Window
 
 from app.GUI.updateFeed import update_feed
 import app.classes.logging.log as log
+
 from app.classes.handlers.postCreationHandler import postCreationHandler
+from app.classes.handlers.addServerHandler import CreateAddServerPopup
 
 import threading
 import os
@@ -23,15 +25,12 @@ class CreatePostWindow(BoxLayout):
         """Share post"""
         handler = postCreationHandler(self)
 
-    def add_server(self):
-        """Add server"""
-        pass
-
 
 class KaejaServers(BoxLayout):
 
     def add_server(self):
-        print("add server button pressed")
+        """Add server"""
+        CreateAddServerPopup()
 
 
 class Posts(GridLayout):

@@ -37,6 +37,7 @@ class postCreationHandler:
         self.finish()
 
     def read(self):
+        print(self.parent.children[1])
         self.image_path = self.parent.children[1].ids.header_input.text
         self.content = self.parent.children[1].children[0].ids.content_input.text
 

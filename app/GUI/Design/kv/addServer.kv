@@ -1,0 +1,55 @@
+#:import Factory kivy.factory.Factory
+<AddServerPopup@Popup>:
+    auto_dismiss: True
+    title: "Add Server"
+    size_hint: None, None
+    size: 400, 400
+    PopupContent:
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+<PopupContent>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    Label:
+        text: "Server Name"
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    TextInput:
+        id: server_name
+        hint_text: 'Specify a name for the server'
+        multiline: False
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
+    Label:
+        text: "Server Address"
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    TextInput:
+        id: server_address
+        hint_text: 'The ip of the server, you want to connect to'
+        multiline: False
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
+    Label:
+        text: "Server Port"
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    TextInput:
+        id: server_port
+        hint_text: 'The port of the server, you want to connect to'
+        multiline: False
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
+    Button:
+        text: "Join"
+        background_color: 0, 0.8, 0.1, 1
+        on_press: root.add_server()
+        size_hint_y: None
+        height: "48dp"
