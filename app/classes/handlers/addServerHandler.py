@@ -1,6 +1,7 @@
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
+from kivy.factory import Factory as Factory
 
 import app.data.basicData as bD
 from app.classes.Server import Server
@@ -29,7 +30,7 @@ class PopupContent(BoxLayout):
 
         AddServerHandler(name, ip, port)
 
-        clear_inputs()
+        bD.AddServerPopup.dismiss()  # Close the popup
 
 
 class AddServerPopup(Popup):
@@ -39,6 +40,7 @@ class AddServerPopup(Popup):
 class CreateAddServerPopup:
     def __init__(self):
         self.popup = AddServerPopup()
+        bD.AddServerPopup = self.popup
         self.popup.open()
 
 

@@ -14,7 +14,7 @@ class postCreationHandler:
 
         self.user = bD.user_name
 
-        self.use_default_image = True
+        self.use_default_image = False
         self.default_image_path = "data/test/img/Ag02.png"
         self.image_path = ""
         self.image = None

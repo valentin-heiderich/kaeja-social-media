@@ -31,6 +31,7 @@ class KaejaServers(BoxLayout):
     def add_server(self):
         """Add server"""
         CreateAddServerPopup()
+        #  UpdateServerList()
 
 
 class Posts(GridLayout):

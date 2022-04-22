@@ -10,6 +10,8 @@ address = None
 connected = False
 client_id = None
 
+AddServerPopup = None
+
 # predefined data
 user_name = str(os.getlogin())
 server_address = ('127.0.0.1', 8775)
