@@ -7,6 +7,7 @@ from kivy.core.window import Window
 
 from app.GUI.updateFeed import update_feed
 import app.classes.logging.log as log
+import app.data.basicData as bD
 
 from app.classes.handlers.postCreationHandler import postCreationHandler
 from app.classes.handlers.addServerHandler import CreateAddServerPopup
@@ -31,7 +32,7 @@ class KaejaServers(BoxLayout):
     def add_server(self):
         """Add server"""
         CreateAddServerPopup()
-        #  UpdateServerList()
+        bD.ServerListWidget = self.children[1].children[0]
 
 
 class Posts(GridLayout):

@@ -3,7 +3,7 @@ import pickle
 
 # runtime data
 recv_posts = pickle.dumps([])
-server_list = pickle.dumps([])
+server_list = []
 
 socket = None
 address = None
@@ -11,6 +11,7 @@ connected = False
 client_id = None
 
 AddServerPopup = None
+ServerListWidget = None
 
 # predefined data
 user_name = str(os.getlogin())

@@ -1,13 +1,12 @@
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.popup import Popup
-from kivy.factory import Factory as Factory
 
 import app.data.basicData as bD
 from app.classes.Server import Server
+from app.GUI.updateGUI.serverList import UpdateServerList
 
 import os
-import pickle
 
 Builder.load_file(f"{os.getcwd()}/GUI/Design/kv/addServer.kv")
 
@@ -52,7 +51,11 @@ class AddServerHandler:
 
         self.server = Server(self.server_name, self.server_ip, self.server_port)
 
+        self.add_server()
+        UpdateServerList()
+
     def add_server(self):
-        server_list = pickle.loads(bD.server_list)
+        server_list = bD.server_list
         server_list.append(self.server)
-        bD.server_list = pickle.dumps(server_list)
+        bD.server_list = server_list
+
