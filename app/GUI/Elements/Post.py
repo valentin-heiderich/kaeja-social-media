@@ -1,10 +1,12 @@
-from kivy.uix.image import Image
+from kivy.uix.image import Image as KvImage
 from kivy.graphics.texture import Texture
 from kivy.uix.label import Label
 from kivy.lang import Builder
+from kivy.core.window import Window
 
 import app.classes.converters.images as imageConverter
 from app.GUI.Design.py.Label import colored_label
+from app.GUI.Elements.Popup import PopupWindow
 import app.data.basicData as bD
 
 import cv2
@@ -14,6 +16,18 @@ Builder.load_string(colored_label)
 
 class ColoredLabel(Label):
     pass
+
+
+class Image(KvImage):
+    def __init__(self, **kwargs):
+        super(Image, self).__init__(**kwargs)
+
+    def maximize(self):
+        PopupWindow("Image", self.texture, Window.size, image=True)
+
+    def on_touch_down(self, touch):
+        if self.collide_point(*touch.pos):
+            self.maximize()
 
 
 class Post:
