@@ -24,8 +24,6 @@ App:
 
 <Feed@BoxLayout>:
     orientation: "vertical"
-    CreatePostButton:
-        size_hint: 1, 0.05
     Label:
         text: "Feed: "
         size_hint: 1, 0.05
@@ -37,6 +35,9 @@ App:
                 pos: self.pos
                 size: self.size
     PostsWindow:
+    CreatePostWindow:
+        size_hint: 1, 0.1
+        height: self.minimum_height
 
 <PostsWindow@ScrollView>:
     do_scroll_y: True
