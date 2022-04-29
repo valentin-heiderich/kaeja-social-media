@@ -2,6 +2,7 @@ from functools import partial
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
 
@@ -25,6 +26,13 @@ class CreatePostWindow(BoxLayout):
     def share(self):
         """Share post"""
         handler = postCreationHandler(self)
+
+
+class CreatePostButton(Button):
+    def create_post(self):
+        """Create post"""
+        # create_post_popup()
+        return
 
 
 class KaejaServers(BoxLayout):

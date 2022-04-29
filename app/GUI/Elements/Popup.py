@@ -1,5 +1,6 @@
 from kivy.uix.image import Image
 from kivy.uix.popup import Popup
+from kivy.core.window import Window
 
 import pyautogui
 
@@ -28,7 +29,7 @@ class PopupWindow:
             self.create_image()
 
     def create_image(self):
-        self.image = Image(texture=self.content, size_hint=(None, None), size=self.size)
+        self.image = Image(texture=self.content, size_hint=(None, None), size=(self.size[0]-80, self.size[1]-80))
 
     def create_popup(self):
         self.popup = Popup(title=self.title, content=self.image, auto_dismiss=self.auto_dismiss, size_hint=self.size_hint, size=(self.size[0]-20, self.size[1]-20))

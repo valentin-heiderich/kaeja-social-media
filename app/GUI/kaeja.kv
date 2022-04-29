@@ -11,9 +11,6 @@ App:
 <KaejaWidget@GridLayout>:
 
     cols: 3
-    KaejaServers:
-        size_hint: 0.2, 1
-        height: self.minimum_height
     Label:
         background_color: 0.2, 0.2, 0.2, 1
         size_hint: 0.005, 1
@@ -25,43 +22,14 @@ App:
                 size: self.size
     Feed:
 
-<KaejaServers@BoxLayout>:
-    orientation: 'vertical'
-    Label:
-        text: 'Joined Servers:'
-        size_hint: 1, 0.05
-        background_color: 0.4, 0.4, 0.4, 1
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
-    ServerList:
-    Button:
-        text: 'Add Server'
-        size_hint: 1, 0.1
-        on_press: root.add_server()
-        background_normal: ''
-        background_down: ''
-        background_color: 0.4, 0.4, 0.4, 1
-
-
-<ServerList@ScrollView>:
-    do_scroll_y: True
-    ServerListObject:
-        size_hint: 1, None
-        height: self.minimum_height
-
-<ServerListObject@GridLayout>:
-    cols: 1
-
 <Feed@BoxLayout>:
     orientation: "vertical"
-    Label:
-        text: "Chat: "
+    CreatePostButton:
         size_hint: 1, 0.05
-        background_color: 0.4, 0.4, 0.4, 1
+    Label:
+        text: "Feed: "
+        size_hint: 1, 0.05
+        background_color: 0.2, 0.2, 0.2, 0.5
         canvas.before:
             Color:
                 rgba: self.background_color
@@ -69,9 +37,6 @@ App:
                 pos: self.pos
                 size: self.size
     PostsWindow:
-    CreatePostWindow:
-        size_hint: 1, 0.1
-        height: self.minimum_height
 
 <PostsWindow@ScrollView>:
     do_scroll_y: True
@@ -82,6 +47,12 @@ App:
 
 <Posts>:
     cols: 3
+
+<CreatePostButton>:
+    text: "Create Post"
+    size_hint: 1, 0.05
+    background_color: 0.2, 0.2, 0.2, 0.5
+    on_press: root.create_post()
 
 <CreatePostWindow>:
     orientation: "horizontal"
