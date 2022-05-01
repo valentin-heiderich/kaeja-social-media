@@ -10,20 +10,13 @@ App:
 
 <KaejaWidget@GridLayout>:
 
-    cols: 3
-    Label:
-        background_color: 0.2, 0.2, 0.2, 1
-        size_hint: 0.005, 1
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
+    cols: 1
     Feed:
 
 <Feed@BoxLayout>:
     orientation: "vertical"
+    TopMenuBar:
+        size_hint: 1, 0.05
     Label:
         text: "Feed: "
         size_hint: 1, 0.05
@@ -49,47 +42,35 @@ App:
 <Posts>:
     cols: 3
 
-<CreatePostButton>:
-    text: "Create Post"
-    size_hint: 1, 0.05
-    background_color: 0.2, 0.2, 0.2, 0.5
-    on_press: root.create_post()
-
-<CreatePostWindow>:
+<TopMenuBar@BoxLayout>:
     orientation: "horizontal"
-    CreatePostInput:
-        height: self.minimum_height
     Button:
-        size_hint: 0.1, 1
-        text: "Send"
-        on_press: root.share()
-        background_normal: ''
-        background_down: ''
-        background_color: 0.4, 0.4, 0.4, 1
-
-<CreatePostInput@GridLayout>:
-    rows: 2
-    TextInput:
-        id: header_input
-        hint_text: 'specify an image path if you want to share an image'
-        multiline: False
-        size_hint: 1, None
-        height: self.minimum_height
-        background_color: (0.2,0.2,0.2, 1)
-        foreground_color: (1,1,1, 1)
-    ContentInput:
-
-<ContentInput@ScrollView>:
-    id: scroll_view
-    do_scroll_x: False
-    do_scroll_y: True
-    TextInput:
-        id: content_input
-        hint_text: 'Type your feelings here...'
-        multiline: True
-        auto_indent: False
-        scroll_from_swipe: True
-        size_hint: 1, None
-        height: max(self.minimum_height, scroll_view.height)
-        background_color: (0.2,0.2,0.2, 1)
-        foreground_color: (1,1,1, 1)
+        text: "Settings"
+        size_hint: 0.5, 1
+        background_color: 0.2, 0.2, 0.2, 0.5
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    Label:
+        text: "Kaeja"
+        size_hint: 0.5, 1
+        background_color: 0.2, 0.2, 0.2, 0.5
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+    Button:
+        text: "Create Post"
+        size_hint: 0.5, 1
+        background_color: 0.2, 0.2, 0.2, 0.5
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                pos: self.pos
+                size: self.size
