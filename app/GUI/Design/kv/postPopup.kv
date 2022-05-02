@@ -11,7 +11,7 @@
     spacing: 10
     Label:
         text: "Image path (optional):"
-        size_hint: 1, 0.2
+        size_hint: 1, 0.1
         background_normal: ""
         color: 0.18, 0.65, 0.83, 1
     TextInput:
@@ -23,8 +23,14 @@
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
     Label:
-        text: "Content:"
+        text: "Advanced Option:"
         size_hint: 1, 0.2
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    AdvancedOptionsPostPopup:
+    Label:
+        text: "Content:"
+        size_hint: 1, 0.1
         background_normal: ""
         color: 0.18, 0.65, 0.83, 1
     PostContentInput:
@@ -46,3 +52,19 @@
         height: self.minimum_height
         background_color: (0.2,0.2,0.2, 1)
         foreground_color: (1,1,1, 1)
+
+<AdvancedOptionsPostPopup>:
+    cols: 2
+    size_hint: 1, 0.4
+    Label:
+        text: "Default Image?"
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    CheckBox:
+        on_active: root.default_image(self, self.active)
+    Label:
+        text: "Spoiler/NSFW?"
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    CheckBox:
+        on_active: root.blur(self, self.active)

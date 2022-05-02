@@ -14,7 +14,7 @@ class postCreationHandler:
 
         self.user = bD.user_name
 
-        self.use_default_image = False
+        self.use_default_image = bD.USE_DEFAULT_IMAGE
         self.default_image_path = "data/test/img/Ag02.png"
         self.image_path = ""
         self.image = None
@@ -78,6 +78,9 @@ class postCreationHandler:
 
         if not self.content == "" or self.content == self.not_valid_msg:
             self.post_types.append(bD.POST_TYPE_TEXT)  # add the post type to the post types list
+
+        if bD.BLUR_IMAGE:
+            self.post_types.append(bD.POST_TYPE_SPOILER_NSFW)  # add the post type to the post types list
 
         self.post = post.post(image=self.image_array, content=self.content, bvr=0, post_type=self.post_types)  # creates the post
 

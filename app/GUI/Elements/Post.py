@@ -19,11 +19,12 @@ class ColoredLabel(Label):
 
 
 class Image(KvImage):
-    def __init__(self, **kwargs):
+    def __init__(self, normal_texture, **kwargs):
         super(Image, self).__init__(**kwargs)
+        self.normal_texture = normal_texture
 
     def maximize(self):
-        PopupWindow("Image", self.texture, Window.size, image=True)
+        PopupWindow("Image", self.normal_texture, Window.size, image=True)
 
     def on_touch_down(self, touch):
         if self.collide_point(*touch.pos):
@@ -45,12 +46,22 @@ class Post:
             self.image_array = post.image
             self.image_array = cv2.cvtColor(self.image_array, cv2.COLOR_BGR2RGB)
             self.image_array = cv2.flip(self.image_array, 0)
+            self.image_array_duplicate = self.image_array.copy()
+
+            if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
+                self.image_array_preview = cv2.blur(self.image_array_duplicate, (50, 50))
+            else: self.image_array_preview = self.image_array
+
             self.image = imageConverter.array2image(self.image_array)
+            self.image_preview = imageConverter.array2image(self.image_array_preview)
 
             self.texture = Texture.create(size=(self.image.width, self.image.height))
-            self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+            self.texture_preview = Texture.create(size=(self.image_preview.width, self.image_preview.height))
 
-            widget.add_widget(Image(texture=self.texture, size_hint=(1, None), size=(0, 300)))
+            self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+            self.texture_preview.blit_buffer(self.image_preview.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+
+            widget.add_widget(Image(texture=self.texture_preview, size_hint=(1, None), size=(0, 300), normal_texture=self.texture))
 
         '''text'''
         if bD.POST_TYPE_TEXT in post.post_type:
