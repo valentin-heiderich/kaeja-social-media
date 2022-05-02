@@ -10,8 +10,7 @@ address = None
 connected = False
 client_id = None
 
-AddServerPopup = None
-ServerListWidget = None
+createPostPopup = None
 
 # predefined data
 user_name = str(os.getlogin())

@@ -7,6 +7,7 @@ from kivy.core.window import Window
 
 from app.GUI.updateFeed import update_feed
 import app.classes.logging.log as log
+from app.classes.handlers.postCreationPopupHandler import CreatePostPopupHandler as CPPH
 
 import threading
 import os
@@ -25,7 +26,7 @@ class TopMenuBar(BoxLayout):
 
     def show_post_creation(self):
         """Shows the post creation window"""
-        pass
+        CPPH()
 
 
 class Posts(GridLayout):

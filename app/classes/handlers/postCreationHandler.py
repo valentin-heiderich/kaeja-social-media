@@ -37,14 +37,14 @@ class postCreationHandler:
         self.finish()
 
     def read(self):
-        print(self.parent.children[1])
-        self.image_path = self.parent.children[1].ids.header_input.text
-        self.content = self.parent.children[1].children[0].ids.content_input.text
+        print(self.parent.children)
+        self.image_path = self.parent.ids.image_path.text
+        self.content = self.parent.children[1].ids.post_content.text
 
     def check_input(self):
         if (self.content == "" and self.image_path == "") or self.content == self.not_valid_msg:
             self.valid_input = False
-            self.parent.children[1].children[0].ids.content_input.text = self.not_valid_msg
+            self.parent.children[1].ids.post_content.text = self.not_valid_msg
 
     def create_post(self):
         if not self.valid_input: return  # if the input is not valid, do not create a post
@@ -91,5 +91,5 @@ class postCreationHandler:
 
     def finish(self):
         if not self.valid_input: return  # if the input is not valid, do not finish the post creation
-        self.parent.children[1].ids.header_input.text = ""
-        self.parent.children[1].children[0].ids.content_input.text = ""
+        self.parent.ids.image_path.text = ""
+        self.parent.children[1].ids.post_content.text = ""

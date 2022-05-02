@@ -1,0 +1,48 @@
+<CreatePostPopup@Popup>:
+    auto_dismiss: True
+    title: "Create Post"
+    size_hint: None, None
+    size: 400, 400
+    CreatePostPopupContent:
+
+<CreatePostPopupContent>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+    Label:
+        text: "Image path (optional):"
+        size_hint: 1, 0.2
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    TextInput:
+        id: image_path
+        hint_text: 'Specify an image path if you want to upload an image'
+        multiline: False
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
+    Label:
+        text: "Content:"
+        size_hint: 1, 0.2
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    PostContentInput:
+    Button:
+        text: "Share"
+        background_color: 0, 0.8, 0.1, 1
+        on_press: root.share_post()
+        size_hint_y: None
+        height: "48dp"
+
+<PostContentInput@ScrollView>:
+    do_scroll_x: False
+    do_scroll_y: True
+    TextInput:
+        id: post_content
+        hint_text: 'Type your feelings here'
+        multiline: True
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)
