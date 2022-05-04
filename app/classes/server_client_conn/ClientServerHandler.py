@@ -1,11 +1,11 @@
 from kivy.clock import Clock
 from functools import partial
 
-import app.classes.server_client_conn.recv as re
-import app.classes.server_client_conn.reconnectHandler as reconnectHandler
-import app.classes.logging.log as logger
-import app.data.basicData as bD
-import app.classes.server_client_conn.send as send
+import classes.server_client_conn.recv as re
+import classes.server_client_conn.reconnectHandler as reconnectHandler
+import classes.logging.log as logger
+import data.basicData as bD
+import classes.server_client_conn.send as send
 
 import threading
 import os

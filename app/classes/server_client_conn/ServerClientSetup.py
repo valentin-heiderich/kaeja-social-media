@@ -1,6 +1,6 @@
-import app.classes.server_client_conn.ClientServerHandler as ClientServerHandler
-import app.classes.logging.log as log
-import app.data.basicData as bD
+import classes.server_client_conn.ClientServerHandler as ClientServerHandler
+import classes.logging.log as log
+import data.basicData as bD
 
 import socket
 import threading

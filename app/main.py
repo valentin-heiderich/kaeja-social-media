@@ -1,9 +1,9 @@
-import app.redirects.toClasses as toClasses
-import app.redirects.toGUI as toGUI
-import app.classes.server_client_conn.ServerClientSetup as uF
-from app.classes.tts.handleTts import TtSHandler
+import redirects.toClasses as toClasses
+import redirects.toGUI as toGUI
+import classes.server_client_conn.ServerClientSetup as uF
+from classes.tts.handleTts import TtSHandler
 import threading
-import app.classes.logging.log as log
+import classes.logging.log as log
 import os
 
 """log"""

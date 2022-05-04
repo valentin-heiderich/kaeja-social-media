@@ -5,9 +5,9 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
 
-from app.GUI.updateFeed import update_feed
-import app.classes.logging.log as log
-from app.classes.handlers.postCreationPopupHandler import CreatePostPopupHandler as CPPH
+from GUI.updateFeed import update_feed
+import classes.logging.log as log
+from classes.handlers.postCreationPopupHandler import CreatePostPopupHandler as CPPH
 
 import threading
 import os

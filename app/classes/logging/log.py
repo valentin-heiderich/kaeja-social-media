@@ -1,4 +1,4 @@
-import app.classes.colours.codes01 as colour
+import classes.colours.codes01 as colour
 
 threading = f"{colour.CBLUE2}[Threading   ]{colour.CEND}: "
 pc = f"{colour.CVIOLET}[Post creation   ]{colour.CEND}: "

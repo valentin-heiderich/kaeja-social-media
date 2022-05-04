@@ -3,8 +3,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 
-import app.data.basicData as bD
-from app.classes.handlers.postCreationHandler import postCreationHandler
+import data.basicData as bD
+from classes.handlers.postCreationHandler import postCreationHandler
 
 import os
 

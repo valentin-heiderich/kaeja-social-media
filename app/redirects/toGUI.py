@@ -1,4 +1,4 @@
-import app.GUI.KaejaGUI as KaejaGUI
+import GUI.KaejaGUI as KaejaGUI
 
 
 def create_gui():

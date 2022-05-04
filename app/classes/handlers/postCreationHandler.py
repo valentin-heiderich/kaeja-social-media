@@ -1,9 +1,9 @@
 import os.path
 
-import app.data.basicData as bD
-import app.classes.post as post
-import app.classes.server_client_conn.send as send
-import app.classes.converters.images as imageConverter
+import data.basicData as bD
+import classes.post as post
+import classes.server_client_conn.send as send
+import classes.converters.images as imageConverter
 
 import cv2
 

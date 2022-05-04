@@ -1,8 +1,8 @@
 import pickle
 import os
 
-import app.data.basicData as bD
-import app.classes.logging.log as log
+import data.basicData as bD
+import classes.logging.log as log
 
 
 class send:

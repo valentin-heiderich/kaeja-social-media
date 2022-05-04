@@ -1,4 +1,4 @@
-import app.data.basicData as bD
+import data.basicData as bD
 
 import socket
 

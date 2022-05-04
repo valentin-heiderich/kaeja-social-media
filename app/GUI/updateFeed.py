@@ -1,6 +1,6 @@
-import app.data.basicData as bD
-from app.GUI.Elements.Post import Post
-import app.classes.logging.log as log
+import data.basicData as bD
+from GUI.Elements.Post import Post
+import classes.logging.log as log
 import os
 import pickle
 

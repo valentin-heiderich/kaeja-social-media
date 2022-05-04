@@ -1,7 +1,7 @@
 import os
 import threading
-import app.classes.logging.log as log
-import app.classes.tts.female01 as female_voice
+import classes.logging.log as log
+import classes.tts.female01 as female_voice
 
 
 class TtSHandler:

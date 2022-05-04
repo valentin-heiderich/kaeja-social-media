@@ -1,5 +1,5 @@
-import app.classes.post as post
-import app.classes.feed as feed
+import classes.post as post
+import classes.feed as feed
 
 
 def create_post(image, content, bvr):

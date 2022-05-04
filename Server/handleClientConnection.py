@@ -3,7 +3,7 @@ import pickle
 import os
 
 import Server.data.basicData as bD
-import Server.app.requests.send as send
+import Server.requests.send as send
 import Server.logging.log as logger
 
 

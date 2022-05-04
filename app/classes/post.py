@@ -1,6 +1,6 @@
 import time
 import uuid
-import app.data.basicData as bD
+import data.basicData as bD
 
 
 class post:

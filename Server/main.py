@@ -1,11 +1,10 @@
 import socket
 import threading
-import time
 import os
 
-import Server.app.handleClientConnection as hCC
+import Server.handleClientConnection as hCC
 import Server.data.basicData as bD
-import app.redirects.toClasses as toClasses
+# import app.redirects.toClasses as toClasses
 import Server.logging.log as log
 
 
@@ -27,11 +26,11 @@ def main_loop():
         client_handler.start()
 
 
-def test():
-    for i in range(0, 100):
-        log.log(os.path.basename(__file__), log.pc, f"creating post class for post {str(i)} {time.asctime()}")
-        post = toClasses.create_post(image='data/test/img/Ag02.png', content="server testi", bvr=0)
-        bD.posts.append(post)
+# def test():
+#     for i in range(0, 100):
+#         log.log(os.path.basename(__file__), log.pc, f"creating post class for post {str(i)} {time.asctime()}")
+#         post = toClasses.create_post(image='data/test/img/Ag02.png', content="server testi", bvr=0)
+#         bD.posts.append(post)
 
 
 main_loop()

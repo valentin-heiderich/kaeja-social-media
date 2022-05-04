@@ -4,10 +4,10 @@ from kivy.uix.label import Label
 from kivy.lang import Builder
 from kivy.core.window import Window
 
-import app.classes.converters.images as imageConverter
-from app.GUI.Design.py.Label import colored_label
-from app.GUI.Elements.Popup import PopupWindow
-import app.data.basicData as bD
+import classes.converters.images as imageConverter
+from GUI.Design.py.Label import colored_label
+from GUI.Elements.Popup import PopupWindow
+import data.basicData as bD
 
 import cv2
 
