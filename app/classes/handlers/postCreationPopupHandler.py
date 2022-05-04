@@ -22,7 +22,6 @@ class AdvancedOptionsPostPopup(GridLayout):
 class CreatePostPopupContent(BoxLayout):
     def share_post(self):
         postCreationHandler(self)
-        bD.createPostPopup.dismiss()
 
 
 class CreatePostPopup(Popup):

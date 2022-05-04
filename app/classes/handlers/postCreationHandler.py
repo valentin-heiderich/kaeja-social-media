@@ -90,9 +90,14 @@ class postCreationHandler:
 
     def send(self):
         if not self.valid_input: return  # if the input is not valid, do not send a post
-        send.send(None, self.post)  # sends the post to the server
+        try:
+            send.send(None, self.post)  # sends the post to the server
+        except:
+            self.parent.children[1].ids.post_content.text = "Can't connect to the server"
+            self.valid_input = False
 
     def finish(self):
         if not self.valid_input: return  # if the input is not valid, do not finish the post creation
         self.parent.ids.image_path.text = ""
         self.parent.children[1].ids.post_content.text = ""
+        bD.createPostPopup.dismiss()
