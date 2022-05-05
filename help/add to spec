@@ -1,0 +1,4 @@
+from kivy_deps import sdl2, glew
+
+Tree('C:\\Users\\Megaport\\PycharmProjects\\kaeja-social-media\\app\\'),
+*[Tree(p) for p in (sdl2.dep_bins + glew.dep_bins)],

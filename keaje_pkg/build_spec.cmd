@@ -1,0 +1,1 @@
+python -m PyInstaller kaeja.spec
