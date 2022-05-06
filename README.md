@@ -17,7 +17,7 @@ Hope this code is ok xD <3
 -------------------------------------
 
 # Requirements:
-Python 3.9, PyCharm (or other IDE), some libs (just look at the error logs, i will try to make a requirement file soon)
+Download the .zip from the latest Version, Windows(tested:10)
 
 -------------------------------------
 
