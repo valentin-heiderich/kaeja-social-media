@@ -39,7 +39,7 @@ class postCreationHandler:
 
     def read(self):
         print(self.parent.children)
-        self.image_path = self.parent.ids.image_path.text
+        self.image_path = str(self.parent.ids.image_path.text).replace('"', '')
         self.content = self.parent.children[1].ids.post_content.text
 
     def check_input(self):
