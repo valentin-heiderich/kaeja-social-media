@@ -43,12 +43,13 @@ App:
     orientation: "horizontal"
     Button:
         text: "Settings"
-        size_hint: 0.5, 1
+        size_hint: 0.34, 1
+        background_normal: ""
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_settings()
     Label:
-        text: "Kaeja ©vh64g 2022"
-        size_hint: 0.5, 1
+        text: "Kaeja"
+        size_hint: 0.34, 1
         background_color: 0.2, 0.2, 0.2, 0.5
         canvas.before:
             Color:
@@ -58,6 +59,7 @@ App:
                 size: self.size
     Button:
         text: "Create Post"
-        size_hint: 0.5, 1
+        size_hint: 0.34, 1
+        background_normal: ""
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_post_creation()

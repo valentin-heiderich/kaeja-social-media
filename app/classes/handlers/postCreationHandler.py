@@ -6,6 +6,7 @@ import classes.server_client_conn.send as send
 import classes.converters.images as imageConverter
 
 import cv2
+import random
 
 
 class postCreationHandler:
@@ -15,7 +16,7 @@ class postCreationHandler:
         self.user = bD.user_name
 
         self.use_default_image = bD.USE_DEFAULT_IMAGE
-        self.default_image_path = "data/test/img/Ag02.png"
+        self.default_image_path = f"data/Design/d_images/d_image{random.randint(1, 20)}.png"
         self.image_path = ""
         self.image = None
         self.image_array = None

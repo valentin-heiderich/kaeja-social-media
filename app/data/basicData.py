@@ -11,6 +11,7 @@ connected = False
 client_id = None
 
 createPostPopup = None
+settingsPopup = None
 
 # predefined data
 user_name = str(os.getlogin())
@@ -27,4 +28,4 @@ POST_TYPE_SPOILER_NSFW = 'spoiler_nsfw'
 
 # Design data
 sizer_color = (1, 0.8, 0.2, 0.7)
-post_background_color = (0.2, 0.2, 0.2, 1)
+post_background_color = (0.2, 0.2, 0.2, 0.5)

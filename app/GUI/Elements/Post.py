@@ -37,7 +37,7 @@ class Post:
         """Create a post with the given data"""
 
         '''header'''
-        header = ColoredLabel(text=str(post.header), size_hint=(1, None), background_color=(0.1, 0.1, 0.1, 1))
+        header = ColoredLabel(text=str(post.header), size_hint=(0.5, None), background_color=(0.1, 0.1, 0.1, 0.7))
         header.bind(texture_size=header.setter('size'))
         widget.add_widget(header)
 
@@ -65,10 +65,10 @@ class Post:
 
         '''text'''
         if bD.POST_TYPE_TEXT in post.post_type:
-            text = ColoredLabel(text=str(post.content), size_hint=(1, None), background_color=bD.post_background_color)
+            text = ColoredLabel(text=str(post.content), size_hint=(0.5, None),  background_color=bD.post_background_color)
             text.bind(texture_size=text.setter('size'))
             widget.add_widget(text)
 
-        '''sizer'''
-        sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
-        widget.add_widget(sizer)
+        # '''sizer'''
+        # sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
+        # widget.add_widget(sizer)

@@ -1,13 +1,17 @@
 from functools import partial
 from kivy.app import App
 from kivy.clock import Clock
+from kivy.properties import StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.core.window import Window
 
+
 from GUI.updateFeed import update_feed
 import classes.logging.log as log
 from classes.handlers.postCreationPopupHandler import CreatePostPopupHandler as CPPH
+from classes.handlers.settingsPopupHandler import SettingsPopupHandler as SPH
+import data.basicData as bD
 
 import threading
 import os
@@ -20,9 +24,13 @@ Window.maximize()
 
 class TopMenuBar(BoxLayout):
     """Here the actions of the top menu bar are defined"""
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.name = StringProperty(bD.user_name)
+
     def show_settings(self):
         """Shows the settings window"""
-        pass
+        SPH()
 
     def show_post_creation(self):
         """Shows the post creation window"""
