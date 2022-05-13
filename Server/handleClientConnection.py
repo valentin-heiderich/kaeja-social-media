@@ -16,6 +16,7 @@ class clientHandler:
         self.new_posts = []
         self.FORMAT = "utf-8"
         self.HEADER = 1024
+        self.B_HEADER = 5
 
         send.send(self.cs, self.uuid)
 
@@ -23,16 +24,19 @@ class clientHandler:
 
     def loop(self):
         while self.connection:
-            msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
-            msg = pickle.loads(self.cs.recv(msg_len))
+            a_header = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
+            b_header = str(self.cs.recv(self.B_HEADER).decode(self.FORMAT))
+            msg = pickle.loads(self.cs.recv(a_header))
 
             logger.log(os.path.basename(__file__), logger.csh, f"Received message: {str(msg)}")
 
-            if msg == self.uuid:
+            if b_header == "00001":
                 msg = self.g100p()
                 send.send(self.cs, msg)
-            else:
+            elif b_header == "00010":
                 bD.posts.append(msg)
+            elif b_header == "00011":
+                pass
 
     def g100p(self):
         self.new_posts = bD.posts[-100:]

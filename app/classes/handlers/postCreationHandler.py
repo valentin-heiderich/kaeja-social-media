@@ -92,7 +92,7 @@ class postCreationHandler:
     def send(self):
         if not self.valid_input: return  # if the input is not valid, do not send a post
         try:
-            send.send(None, self.post)  # sends the post to the server
+            send.send(None, self.post, bD.MESSAGE_TYPE_POST)  # sends the post to the server
         except:
             self.parent.children[1].ids.post_content.text = "Can't connect to the server"
             self.valid_input = False

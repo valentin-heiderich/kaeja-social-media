@@ -2,8 +2,10 @@ import redirects.toClasses as toClasses
 import redirects.toGUI as toGUI
 import classes.server_client_conn.ServerClientSetup as uF
 from classes.tts.handleTts import TtSHandler
-import threading
 import classes.logging.log as log
+import classes.handlers.CryptographyHandler as ch
+
+import threading
 import os
 
 """log"""

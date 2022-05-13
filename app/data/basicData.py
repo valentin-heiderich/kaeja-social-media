@@ -1,21 +1,21 @@
 import os
 import pickle
 
-# runtime data
+# posts
 recv_posts = pickle.dumps([])
-server_list = []
 
+# server data
+server_address = ('127.0.0.1', 8775)
 socket = None
 address = None
 connected = False
-client_id = None
+client_id = None  # session id
 
+# Popups
 createPostPopup = None
 settingsPopup = None
 
-# predefined data
-user_name = str(os.getlogin())
-server_address = ('127.0.0.1', 8775)
+# post types
 USE_DEFAULT_IMAGE = False
 BLUR_IMAGE = False
 POST_TYPE_IMAGE = 'image'
@@ -25,6 +25,15 @@ POST_TYPE_AUDIO = 'audio'
 POST_TYPE_FILE = 'file'
 POST_TYPE_LINK = 'link'
 POST_TYPE_SPOILER_NSFW = 'spoiler_nsfw'
+
+# server,client communication msg types
+MESSAGE_TYPE_CRYPTOGRAPHY = '00011'
+MESSAGE_TYPE_POST = '00010'
+MESSAGE_TYPE_UPDATE_FEED = '00001'
+
+# account data
+user_name = str(os.getlogin())
+user_id = None
 
 # Design data
 sizer_color = (1, 0.8, 0.2, 0.7)

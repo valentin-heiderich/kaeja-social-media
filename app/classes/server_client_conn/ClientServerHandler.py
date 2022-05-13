@@ -40,4 +40,4 @@ class ClientServerHandler:
         pass
 
     def ask_for_update(self, dt):
-        send.send(None, bD.client_id)
+        send.send(None, bD.client_id, bD.MESSAGE_TYPE_UPDATE_FEED)
