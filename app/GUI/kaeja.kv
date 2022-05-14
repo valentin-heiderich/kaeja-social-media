@@ -2,7 +2,7 @@ App:
 
 <App@FloatLayout>
     Image:
-        source: 'data/Design/Backgrounds/03.png'
+        source: 'data/Design/Backgrounds/05.png'
         allow_stretch: True
         keep_ratio: False
     KaejaWidget:
@@ -44,22 +44,15 @@ App:
     Button:
         text: "Settings"
         size_hint: 0.34, 1
-        background_normal: ""
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_settings()
-    Label:
-        text: "Kaeja"
+    Button:
+        text: root.name
         size_hint: 0.34, 1
         background_color: 0.2, 0.2, 0.2, 0.5
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
+        on_press: root.show_account()
     Button:
         text: "Create Post"
         size_hint: 0.34, 1
-        background_normal: ""
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_post_creation()

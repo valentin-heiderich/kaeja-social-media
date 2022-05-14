@@ -24,13 +24,16 @@ Window.maximize()
 
 class TopMenuBar(BoxLayout):
     """Here the actions of the top menu bar are defined"""
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.name = StringProperty(bD.user_name)
+
+    name = StringProperty(bD.user_name)
 
     def show_settings(self):
         """Shows the settings window"""
         SPH()
+
+    def show_account(self):
+        """Shows the account window"""
+        pass
 
     def show_post_creation(self):
         """Shows the post creation window"""
