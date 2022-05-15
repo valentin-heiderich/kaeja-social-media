@@ -10,6 +10,25 @@
     padding: 20
     spacing: 20
     SettingsSelectionSection01:
+    Button:
+        text: "Apply settings"
+        background_color: 0, 0.8, 0.1, 1
+        on_press: root.apply_settings()
+        size_hint_y: None
+        height: "48dp"
 
 <SettingsSelectionSection01>:
-    orientation: "vertical"
+    orientation: "horizontal"
+    Label:
+        text: "Background:"
+        size_hint: 1, 0.1
+        background_normal: ""
+        color: 0.18, 0.65, 0.83, 1
+    TextInput:
+        id: background
+        hint_text: 'image id'
+        multiline: False
+        size_hint: 1, None
+        height: self.minimum_height
+        background_color: (0.2,0.2,0.2, 1)
+        foreground_color: (1,1,1, 1)

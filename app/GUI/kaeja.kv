@@ -2,7 +2,7 @@ App:
 
 <App@FloatLayout>
     Image:
-        source: 'data/Design/Backgrounds/05.png'
+        source: app.background
         allow_stretch: True
         keep_ratio: False
     KaejaWidget:
@@ -47,7 +47,7 @@ App:
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_settings()
     Button:
-        text: root.name
+        text: app.name
         size_hint: 0.34, 1
         background_color: 0.2, 0.2, 0.2, 0.5
         on_press: root.show_account()

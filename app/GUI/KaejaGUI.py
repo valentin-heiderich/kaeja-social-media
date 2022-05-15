@@ -16,6 +16,8 @@ import data.basicData as bD
 import threading
 import os
 
+app_instance = None
+
 Window.size = (1280, 720)
 Window.minimum_width, Window.minimum_height = Window.size
 Window.pos = (0, 0)
@@ -29,7 +31,9 @@ class TopMenuBar(BoxLayout):
 
     def show_settings(self):
         """Shows the settings window"""
-        SPH()
+        log.log(os.path.basename(__file__), log.ui, f"{self}.settings")
+        global app_instance
+        SPH(app_instance)
 
     def show_account(self):
         """Shows the account window"""
@@ -37,6 +41,7 @@ class TopMenuBar(BoxLayout):
 
     def show_post_creation(self):
         """Shows the post creation window"""
+        log.log(os.path.basename(__file__), log.ui, f"{self}.post_creation")
         CPPH()
 
 
@@ -54,4 +59,16 @@ class Posts(GridLayout):
 
 class KaejaApp(App):
     """This is the main GUI application"""
-    log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
+    def __init__(self):
+        super().__init__()
+        log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
+        self.title = 'Kaeja'
+        self.icon = 'data/Design/d_images/d_image7.png'
+    background = StringProperty(f'data/Design/Backgrounds/0{bD.background_image}.png')
+    name = StringProperty(bD.user_name)
+
+
+def main():
+    global app_instance
+    app_instance = KaejaApp()
+    app_instance.run()

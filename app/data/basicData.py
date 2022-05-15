@@ -38,3 +38,4 @@ user_id = None
 # Design data
 sizer_color = (1, 0.8, 0.2, 0.7)
 post_background_color = (0.2, 0.2, 0.2, 0.5)
+background_image = 5

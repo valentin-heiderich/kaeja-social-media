@@ -1,5 +1,5 @@
 import redirects.toClasses as toClasses
-import redirects.toGUI as toGUI
+from GUI.KaejaGUI import main as KaejaGUI
 import classes.server_client_conn.ServerClientSetup as uF
 from classes.tts.handleTts import TtSHandler
 import classes.logging.log as log
@@ -12,7 +12,7 @@ import os
 log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
 
 """declare .py scripts"""
-GUI = toGUI.create_gui()
+GUI = KaejaGUI()
 s_conn = threading.Thread(target=uF.updateFeed)
 TtS = threading.Thread(target=TtSHandler)
 
@@ -23,4 +23,3 @@ feed = toClasses.feed_class(posts)
 """start .py scripts"""
 s_conn.start()
 TtS.start()
-GUI.run()
