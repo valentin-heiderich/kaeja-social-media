@@ -12,7 +12,7 @@ import os
 log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
 
 """declare .py scripts"""
-GUI = KaejaGUI()
+GUI = KaejaGUI
 s_conn = threading.Thread(target=uF.updateFeed)
 TtS = threading.Thread(target=TtSHandler)
 
@@ -23,3 +23,4 @@ feed = toClasses.feed_class(posts)
 """start .py scripts"""
 s_conn.start()
 TtS.start()
+GUI()

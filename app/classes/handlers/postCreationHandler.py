@@ -101,4 +101,5 @@ class postCreationHandler:
         if not self.valid_input: return  # if the input is not valid, do not finish the post creation
         self.parent.ids.image_path.text = ""
         self.parent.children[1].ids.post_content.text = ""
+        bD.USE_DEFAULT_IMAGE = False
         bD.createPostPopup.dismiss()
