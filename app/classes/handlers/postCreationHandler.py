@@ -16,6 +16,7 @@ class postCreationHandler:
         self.user = bD.user_name
 
         self.use_default_image = bD.USE_DEFAULT_IMAGE
+        self.blur_image = bD.BLUR_IMAGE
         self.default_image_path = f"data/Design/d_images/d_image{random.randint(1, 20)}.png"
         self.image_path = ""
         self.image = None
@@ -97,9 +98,15 @@ class postCreationHandler:
             self.parent.children[1].ids.post_content.text = "Can't connect to the server"
             self.valid_input = False
 
+    def reset(self):
+        self.use_default_image = False
+        bD.USE_DEFAULT_IMAGE = False
+        self.blur_image = False
+        bD.BLUR_IMAGE = False
+
     def finish(self):
         if not self.valid_input: return  # if the input is not valid, do not finish the post creation
         self.parent.ids.image_path.text = ""
         self.parent.children[1].ids.post_content.text = ""
-        bD.USE_DEFAULT_IMAGE = False
+        self.reset()
         bD.createPostPopup.dismiss()
