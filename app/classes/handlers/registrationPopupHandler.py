@@ -7,19 +7,19 @@ import data.basicData as bD
 
 import os
 
-Builder.load_file(f"{os.getcwd()}/GUI/Design/kv/accountPopup.kv")
+Builder.load_file(f"{os.getcwd()}/GUI/Design/kv/registrationPopup.kv")
 
 
-class AccountPopupContent(BoxLayout):
+class RegistrationPopupContent(BoxLayout):
     pass
 
 
-class accountPopup(Popup):
+class RegistrationPopup(Popup):
     pass
 
 
-class accountPopupHandler:
+class registrationPopupHandler:
     def __init__(self):
-        self.popup = accountPopup()
-        bD.accountPopup = self.popup
+        self.popup = RegistrationPopup()
+        bD.registrationPopup = self.popup
         self.popup.open()

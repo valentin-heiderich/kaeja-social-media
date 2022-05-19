@@ -32,6 +32,7 @@ MESSAGE_TYPE_POST = '00010'
 MESSAGE_TYPE_UPDATE_FEED = '00001'
 
 # account data
+logged_in = False
 user_name = str(os.getlogin())
 user_id = None
 
