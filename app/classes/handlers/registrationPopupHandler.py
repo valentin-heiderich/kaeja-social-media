@@ -11,7 +11,8 @@ Builder.load_file(f"{os.getcwd()}/GUI/Design/kv/registrationPopup.kv")
 
 
 class RegistrationPopupContent(BoxLayout):
-    pass
+    def register(self):
+        pass
 
 
 class RegistrationPopup(Popup):

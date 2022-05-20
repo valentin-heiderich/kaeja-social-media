@@ -12,3 +12,60 @@
         size_hint: 1, 0.3
         background_normal: ""
         color: 0.18, 0.65, 0.83, 1
+
+    GridLayout:
+        cols: 2
+        padding: 10
+        spacing: 10
+        Label:
+            text: "Username"
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        TextInput:
+            id: username
+            multiline: False
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+        Label:
+            text: "Email"
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        TextInput:
+            id: email
+            multiline: False
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+        Label:
+            text: "Password"
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        TextInput:
+            id: password
+            multiline: False
+            password: True
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+        Label:
+            text: "Confirm Password"
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        TextInput:
+            id: confirm_password
+            multiline: False
+            password: True
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+    Button:
+        text: "Register"
+        background_color: 0, 0.8, 0.1, 1
+        on_press: root.register()
+        size_hint_y: None
+        height: "48dp"
