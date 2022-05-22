@@ -9,8 +9,10 @@ from kivy.core.window import Window
 
 from GUI.updateFeed import update_feed
 import classes.logging.log as log
-from classes.handlers.postCreationPopupHandler import CreatePostPopupHandler as CPPH
-from classes.handlers.settingsPopupHandler import SettingsPopupHandler as SPH
+from classes.handlers.popupHandler.postCreationPopupHandler import CreatePostPopupHandler as CPPH
+from classes.handlers.popupHandler.settingsPopupHandler import SettingsPopupHandler as SPH
+from classes.handlers.popupHandler.accountPopupHandler import accountPopupHandler as APH
+from classes.handlers.popupHandler.registerOrLoginPopupHandler import loginOrRegisterPopupHandler as LORPH
 import data.basicData as bD
 
 import threading

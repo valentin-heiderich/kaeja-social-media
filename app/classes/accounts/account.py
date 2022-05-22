@@ -8,20 +8,9 @@ class user_account:
         self.args = args
         self.kwargs = kwargs
         ################################################################################################################
-        self.username = self.kwargs.get("username")
-        self.password = self.kwargs.get("password")
-
-        self.email = self.kwargs.get("email")
-        self.phone_number = self.kwargs.get("phone_number")
-
-        self.first_name = self.kwargs.get("first_name")
-        self.last_name = self.kwargs.get("last_name")
-        self.birth_date = self.kwargs.get("birth_date")
-
-        self.country = self.kwargs.get("country")
-        self.city = self.kwargs.get("city")
-        self.address = self.kwargs.get("address")
-
-        self.about_me = self.kwargs.get("about_me")
-        self.profile_picture = self.kwargs.get("profile_picture")
+        for attribute in self.possible_attributes:
+            try:
+                setattr(self, attribute, kwargs[attribute])
+            except:
+                setattr(self, attribute, None)
         ################################################################################################################

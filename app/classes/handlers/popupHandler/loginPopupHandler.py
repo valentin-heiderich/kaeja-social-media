@@ -4,6 +4,7 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 
 import data.basicData as bD
+from classes.handlers.loginHandler import loginHandler
 
 import os
 
@@ -12,7 +13,7 @@ Builder.load_file(f"{os.getcwd()}/GUI/Design/kv/loginPopup.kv")
 
 class LoginPopupContent(BoxLayout):
     def login(self):
-        pass
+        loginHandler()
 
 
 class LoginPopup(Popup):

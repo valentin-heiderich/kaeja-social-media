@@ -1,0 +1,2 @@
+class registrationHandler:
+    pass

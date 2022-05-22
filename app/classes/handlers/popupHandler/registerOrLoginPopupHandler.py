@@ -5,8 +5,8 @@ from kivy.uix.popup import Popup
 
 import data.basicData as bD
 
-from classes.handlers.registrationPopupHandler import registrationPopupHandler as rPH
-from classes.handlers.loginPopupHandler import loginPopupHandler as lPH
+from classes.handlers.popupHandler.registrationPopupHandler import registrationPopupHandler as rPH
+from classes.handlers.popupHandler.loginPopupHandler import loginPopupHandler as lPH
 
 import os
 
