@@ -1,4 +1,4 @@
-class user_account:
+class userAccount:
     def __init__(self, *args, **kwargs):
         ################################################################################################################
         self.possible_attributes = ["username", "password", "email", "first_name", "last_name", "phone_number",

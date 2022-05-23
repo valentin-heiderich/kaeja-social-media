@@ -1,36 +1,23 @@
-import socket
 import threading
-import os
 
-import Server.handleClientConnection as hCC
-import Server.data.basicData as bD
-# import app.redirects.toClasses as toClasses
-import Server.logging.log as log
+from Server.sockets.ServerSocket import ServerSocket
+from Server.console.console import console
+import Server.classes.posts as posts
 
 
-log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
+class Server:
+    def __init__(self):
+        self.socket = None
+        self.console = None
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_addr = bD.server_address
-server_socket.bind(server_addr)
-server_socket.listen(5)
+        self.start()
 
-log.log(os.path.basename(__file__), log.SERVER, f"Server running on {str(server_addr)}")
+    def start(self):
+        self.socket = threading.Thread(target=ServerSocket).start()
+        self.console = threading.Thread(target=console).start()
 
-
-def main_loop():
-    while True:
-        (cs, addr) = server_socket.accept()
-        log.log(os.path.basename(__file__), log.SERVER, f"Client {addr} has connected to the Server")
-        client_handler = threading.Thread(target=hCC.clientHandler, args=(cs, addr))
-        client_handler.start()
+        posts.load_posts()
 
 
-# def test():
-#     for i in range(0, 100):
-#         log.log(os.path.basename(__file__), log.pc, f"creating post class for post {str(i)} {time.asctime()}")
-#         post = toClasses.create_post(image='data/test/img/Ag02.png', content="server testi", bvr=0)
-#         bD.posts.append(post)
-
-
-main_loop()
+if __name__ == '__main__':
+    Server()

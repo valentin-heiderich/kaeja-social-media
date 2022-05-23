@@ -1,2 +1,6 @@
+from classes.accounts.account import userAccount
+
+
 class registrationHandler:
-    pass
+    def __init__(self):
+        pass
