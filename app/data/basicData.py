@@ -40,3 +40,4 @@ user_id = None
 sizer_color = (1, 0.8, 0.2, 0.7)
 post_background_color = (0.2, 0.2, 0.2, 0.5)
 background_image = 5
+BLUR_AMOUNT = 0.5

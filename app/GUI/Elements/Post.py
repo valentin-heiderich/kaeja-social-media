@@ -48,11 +48,13 @@ class Post:
             self.image_array = cv2.flip(self.image_array, 0)
             self.image_array_duplicate = self.image_array.copy()
 
+            self.image = imageConverter.array2image(self.image_array)
+
             if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
-                self.image_array_preview = cv2.blur(self.image_array_duplicate, (50, 50))
+                self.blur_amount = (int(self.image.width * bD.BLUR_AMOUNT), int(self.image.height * bD.BLUR_AMOUNT))
+                self.image_array_preview = cv2.blur(self.image_array_duplicate, self.blur_amount)
             else: self.image_array_preview = self.image_array
 
-            self.image = imageConverter.array2image(self.image_array)
             self.image_preview = imageConverter.array2image(self.image_array_preview)
 
             self.texture = Texture.create(size=(self.image.width, self.image.height))
