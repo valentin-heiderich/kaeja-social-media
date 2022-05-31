@@ -66,8 +66,11 @@ class KaejaApp(App):
         log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
         self.title = 'Kaeja'
         self.icon = 'data/Design/d_images/d_image7.png'
+    """Declare variables"""
     background = StringProperty(f'data/Design/Backgrounds/0{bD.background_image}.png')
+    background_image_id = StringProperty(f'{bD.background_image}')
     name = StringProperty(bD.user_name)
+    blur_amount = bD.BLUR_AMOUNT
 
 
 def main():

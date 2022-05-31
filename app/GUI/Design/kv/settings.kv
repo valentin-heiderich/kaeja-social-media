@@ -18,17 +18,45 @@
         height: "48dp"
 
 <SettingsSelectionSection01>:
-    orientation: "horizontal"
-    Label:
-        text: "Background:"
-        size_hint: 1, 0.1
-        background_normal: ""
-        color: 0.18, 0.65, 0.83, 1
-    TextInput:
-        id: background
-        hint_text: 'image id'
-        multiline: False
-        size_hint: 1, None
-        height: self.minimum_height
-        background_color: (0.2,0.2,0.2, 1)
-        foreground_color: (1,1,1, 1)
+    cols: 1
+    BoxLayout:
+        Label:
+            text: "Background:"
+            size_hint: 1, 0.1
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        TextInput:
+            id: background
+            text: app.background_image_id
+            hint_text: 'image id'
+            multiline: False
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+    BoxLayout:
+        size_hint: 1, .1
+        Label:
+            text: "Blur Amount:"
+            size_hint: 1, 1
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        Label:
+            text: "0%"
+            size_hint: .1, 1
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1
+        Slider:
+            id: blur_amount
+            min: 0
+            max: 1
+            value: app.blur_amount
+            step: .01
+            size_hint: 1, 1
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+        Label:
+            text: "100%"
+            size_hint: .1, 1
+            background_normal: ""
+            color: 0.18, 0.65, 0.83, 1

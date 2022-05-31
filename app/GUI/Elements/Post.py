@@ -52,7 +52,10 @@ class Post:
 
             if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
                 self.blur_amount = (int(self.image.width * bD.BLUR_AMOUNT), int(self.image.height * bD.BLUR_AMOUNT))
-                self.image_array_preview = cv2.blur(self.image_array_duplicate, self.blur_amount)
+                if self.blur_amount[0] > 0:
+                    self.image_array_preview = cv2.blur(self.image_array_duplicate, self.blur_amount)
+                else:
+                    self.image_array_preview = self.image_array_duplicate
             else: self.image_array_preview = self.image_array
 
             self.image_preview = imageConverter.array2image(self.image_array_preview)
