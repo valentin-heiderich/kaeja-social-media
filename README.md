@@ -6,6 +6,7 @@ Hope this code is ok xD <3
 -------------------------------------
 
 # Preview:
+![grafik](https://user-images.githubusercontent.com/60042912/171493468-e723bbf3-bffd-4672-b13a-baab14161bfd.png)
 
 
 
