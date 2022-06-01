@@ -13,20 +13,28 @@ App:
     cols: 1
     Feed:
 
-<Feed@BoxLayout>:
+<Feed>:
     orientation: "vertical"
     TopMenuBar:
         size_hint: 1, 0.05
-    Label:
-        text: "Feed: "
+    BoxLayout:
+        orientation: "horizontal"
         size_hint: 1, 0.05
-        background_color: 0.2, 0.2, 0.2, 0.5
-        canvas.before:
-            Color:
-                rgba: self.background_color
-            Rectangle:
-                pos: self.pos
-                size: self.size
+        Label:
+            text: "Feed: "
+            color: 0.18, 0.65, 0.83, 1
+            background_color: 0.2, 0.2, 0.2, 0.5
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+        Button:
+            text: "Refresh UI"
+            color: 0.18, 0.65, 0.83, 1
+            background_color: 0.2, 0.2, 0.2, 0.5
+            on_press: root.refresh()
     PostsWindow:
 
 <PostsWindow@ScrollView>:

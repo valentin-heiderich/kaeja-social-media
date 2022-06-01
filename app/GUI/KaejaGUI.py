@@ -47,6 +47,12 @@ class TopMenuBar(BoxLayout):
         CPPH()
 
 
+class Feed(BoxLayout):
+    def refresh(self):
+        log.log(os.path.basename(__file__), log.ui, f"Refreshed UI manually")
+        update_feed(self.children[0].children[0])
+
+
 class Posts(GridLayout):
     """Here the Feed widget will be Displayed, created and updated"""
     def __init__(self, **kwargs):
@@ -56,7 +62,7 @@ class Posts(GridLayout):
     def update(self):
         """Updates the feed"""
         update_feed(self)
-        event = Clock.schedule_interval(partial(update_feed, self), 3)
+        event = Clock.schedule_interval(partial(update_feed, self), 30)
 
 
 class KaejaApp(App):

@@ -10,6 +10,7 @@ from GUI.Elements.Popup import PopupWindow
 import data.basicData as bD
 
 import cv2
+import sparse
 
 Builder.load_string(colored_label)
 
@@ -43,12 +44,10 @@ class Post:
 
         '''image'''
         if bD.POST_TYPE_IMAGE in post.post_type:
-            self.image_array = post.image
-            self.image_array = cv2.cvtColor(self.image_array, cv2.COLOR_BGR2RGB)
-            self.image_array = cv2.flip(self.image_array, 0)
-            self.image_array_duplicate = self.image_array.copy()
+            post.image = cv2.flip(cv2.cvtColor(post.image, cv2.COLOR_BGR2RGB), 0)
+            self.image_array_duplicate = post.image.copy()
 
-            self.image = imageConverter.array2image(self.image_array)
+            self.image = imageConverter.array2image(post.image)
 
             if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
                 self.blur_amount = (int(self.image.width * bD.BLUR_AMOUNT), int(self.image.height * bD.BLUR_AMOUNT))
@@ -56,7 +55,7 @@ class Post:
                     self.image_array_preview = cv2.blur(self.image_array_duplicate, self.blur_amount)
                 else:
                     self.image_array_preview = self.image_array_duplicate
-            else: self.image_array_preview = self.image_array
+            else: self.image_array_preview = post.image
 
             self.image_preview = imageConverter.array2image(self.image_array_preview)
 
