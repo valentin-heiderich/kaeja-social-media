@@ -12,11 +12,6 @@ Hope this code is ok xD <3
 
 -------------------------------------
 
-# Known issues:
-  -Sometimes crashing while processing big image files
-  
--------------------------------------
-
 # Requirements:
 Download the .zip from the latest Version, Windows(tested:10)
 
