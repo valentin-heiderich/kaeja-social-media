@@ -40,39 +40,44 @@ class Post:
         '''header'''
         header = ColoredLabel(text=str(post.header), size_hint=(0.5, None), background_color=(0.1, 0.1, 0.1, 0.7))
         header.bind(texture_size=header.setter('size'))
-        widget.add_widget(header)
 
         '''image'''
-        if bD.POST_TYPE_IMAGE in post.post_type:
-            post.image = cv2.flip(cv2.cvtColor(post.image, cv2.COLOR_BGR2RGB), 0)
-            self.image_array_duplicate = post.image.copy()
+        try:
+            if bD.POST_TYPE_IMAGE in post.post_type:
+                post.image = cv2.flip(cv2.cvtColor(post.image, cv2.COLOR_BGR2RGB), 0)
+                self.image_array_preview = post.image.copy()
 
-            self.image = imageConverter.array2image(post.image)
+                self.image = imageConverter.array2image(post.image)
 
-            if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
-                self.blur_amount = (int(self.image.width * bD.BLUR_AMOUNT), int(self.image.height * bD.BLUR_AMOUNT))
-                if self.blur_amount[0] > 0:
-                    self.image_array_preview = cv2.blur(self.image_array_duplicate, self.blur_amount)
-                else:
-                    self.image_array_preview = self.image_array_duplicate
-            else: self.image_array_preview = post.image
+                if bD.POST_TYPE_SPOILER_NSFW in post.post_type:
+                    self.blur_amount = (int(self.image.width * bD.BLUR_AMOUNT), int(self.image.height * bD.BLUR_AMOUNT))
+                    if self.blur_amount[0] > 0:
+                        self.image_array_preview = cv2.blur(self.image_array_preview, self.blur_amount)
+                    else:
+                        pass
+                else: self.image_array_preview = post.image
 
-            self.image_preview = imageConverter.array2image(self.image_array_preview)
+                self.image_preview = imageConverter.array2image(self.image_array_preview)
 
-            self.texture = Texture.create(size=(self.image.width, self.image.height))
-            self.texture_preview = Texture.create(size=(self.image_preview.width, self.image_preview.height))
+                self.texture = Texture.create(size=(self.image.width, self.image.height))
+                self.texture_preview = Texture.create(size=(self.image_preview.width, self.image_preview.height))
 
-            self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
-            self.texture_preview.blit_buffer(self.image_preview.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
-
-            widget.add_widget(Image(texture=self.texture_preview, size_hint=(1, None), size=(0, 300), normal_texture=self.texture))
+                self.texture.blit_buffer(self.image.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+                self.texture_preview.blit_buffer(self.image_preview.tobytes(), colorfmt='rgb', bufferfmt='ubyte')
+        except:
+            return
 
         '''text'''
+        text = ""
         if bD.POST_TYPE_TEXT in post.post_type:
             text = ColoredLabel(text=str(post.content), size_hint=(0.5, None),  background_color=bD.post_background_color)
             text.bind(texture_size=text.setter('size'))
-            widget.add_widget(text)
 
         # '''sizer'''
         # sizer = ColoredLabel(text=" ", size_hint=(1, None), size=(0, 1), background_color=bD.sizer_color)
         # widget.add_widget(sizer)
+
+        '''render objects on screen'''
+        widget.add_widget(header)
+        if bD.POST_TYPE_IMAGE in post.post_type: widget.add_widget(Image(texture=self.texture_preview, size_hint=(1, None), size=(0, 300), normal_texture=self.texture))
+        if bD.POST_TYPE_TEXT in post.post_type: widget.add_widget(text)
