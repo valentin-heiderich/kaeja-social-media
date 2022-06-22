@@ -7,6 +7,8 @@ I'am currently working on different Sreens and a filechooser, I mean I planned t
 
 To implement the different Screens I might need to change a lot of my current kv "code".
 
+Oh, and I'am also currently working on an account system !hype xD
+
 -------------------------------------
 
 # Preview:
