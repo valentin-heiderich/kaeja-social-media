@@ -3,6 +3,10 @@
 
 Hope this code is ok xD <3
 
+I'am currently working on different Sreens and a filechooser, I mean I planned the file chooser back when this was console based, and now I think I'am finally far enough that a file chooser will actually make sense, I never thought I would be able to make sth like this! Thanks xD <3
+
+To implement the different Screens I might need to change a lot of my current kv "code".
+
 -------------------------------------
 
 # Preview:
