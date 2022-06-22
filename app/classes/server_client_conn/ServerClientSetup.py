@@ -1,4 +1,5 @@
 import classes.server_client_conn.ClientServerHandler as ClientServerHandler
+import classes.cryptography.setup_keys as sec_set
 import classes.logging.log as log
 import data.basicData as bD
 
@@ -32,6 +33,7 @@ class updateFeed:
 
     def establish_connection(self):
         """Establish a connection between a Server and the client"""
+        sec_set.setup_pycryptodome_keys()
         while self.connecting:
             try:
                 self.cs.connect(self.server_addr)

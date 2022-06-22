@@ -4,8 +4,7 @@ from kivy.clock import Clock
 from kivy.properties import StringProperty
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from kivy.core.window import Window
-
+from kivy.core.window import Window, Animation
 
 from GUI.updateFeed import update_feed
 import classes.logging.log as log
@@ -39,7 +38,8 @@ class TopMenuBar(BoxLayout):
 
     def show_account(self):
         """Shows the account window"""
-        pass
+        log.log(os.path.basename(__file__), log.ui, f"{self}.account management")
+        if not bD.logged_in: LORPH()
 
     def show_post_creation(self):
         """Shows the post creation window"""

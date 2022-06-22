@@ -36,6 +36,10 @@ logged_in = False
 user_name = str(os.getlogin())
 user_id = None
 
+# SAFETY
+pr_key = None
+pub_key = None
+
 # Design data
 sizer_color = (1, 0.8, 0.2, 0.7)
 post_background_color = (0.2, 0.2, 0.2, 0.5)
