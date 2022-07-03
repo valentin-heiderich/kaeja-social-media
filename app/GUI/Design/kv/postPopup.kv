@@ -14,14 +14,23 @@
         size_hint: 1, 0.1
         background_normal: ""
         color: 0.18, 0.65, 0.83, 1
-    TextInput:
-        id: image_path
-        hint_text: 'Specify an image path if you want to upload an image'
-        multiline: False
-        size_hint: 1, None
-        height: self.minimum_height
-        background_color: (0.2,0.2,0.2, 1)
-        foreground_color: (1,1,1, 1)
+    BoxLayout:
+        orientation: "horizontal"
+        TextInput:
+            id: image_path
+            hint_text: 'Specify an image path if you want to upload an image'
+            multiline: False
+            size_hint: 1, None
+            height: self.minimum_height
+            background_color: (0.2,0.2,0.2, 1)
+            foreground_color: (1,1,1, 1)
+            cursor_color: (1,1,1, 1)
+        Button:
+            text: "Load"
+            color: 0.18, 0.65, 0.83, 1
+            background_color: 0.2, 0.2, 0.2, 0.5
+            on_press: root.choose_image()
+            size_hint: .2, .4
     Label:
         text: "Advanced Option:"
         size_hint: 1, 0.2

@@ -5,6 +5,7 @@ from kivy.uix.popup import Popup
 
 import data.basicData as bD
 from classes.handlers.postCreationHandler import postCreationHandler
+from classes.handlers.popupHandler.filechooserPopupHandler import filechooserPopupHandler as fPH
 
 import os
 
@@ -22,6 +23,10 @@ class AdvancedOptionsPostPopup(GridLayout):
 class CreatePostPopupContent(BoxLayout):
     def share_post(self):
         postCreationHandler(self)
+
+    def choose_image(self):
+        bD.path_selection_field_ref = self.ids.image_path
+        fPH()  # open filechooser popup and and return the path
 
 
 class CreatePostPopup(Popup):

@@ -1,0 +1,28 @@
+<FilechooserPopup>:
+
+    auto_dismiss: True
+    title: "File Chooser"
+    size_hint: None, None
+    size: 400, 400
+
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserListView:
+            id: filechooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                color: 0.18, 0.65, 0.83, 1
+                background_color: 0.2, 0.2, 0.2, 0.5
+                on_release: root.dismiss()
+
+            Button:
+                text: "Load"
+                color: 0.18, 0.65, 0.83, 1
+                background_color: 0.2, 0.2, 0.2, 0.5
+                on_release: root.load(filechooser.path, filechooser.selection)

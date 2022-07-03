@@ -14,6 +14,10 @@ client_id = None  # session id
 # Popups
 createPostPopup = None
 settingsPopup = None
+filechooserPopup = None
+
+# Popup Elements
+path_selection_field_ref = None
 
 # post types
 USE_DEFAULT_IMAGE = False
