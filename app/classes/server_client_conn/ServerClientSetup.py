@@ -38,11 +38,14 @@ class updateFeed:
             try:
                 self.cs.connect(self.server_addr)
                 self.connecting = False
+                log.log(os.path.basename(__file__), log.csh, f"Connected to Server: {self.server_addr}")
             except:
-                return
+                log.log(os.path.basename(__file__), log.csh, f"Failed to reach Server: {self.server_addr}")
 
         msg_len = int(self.cs.recv(self.HEADER).decode(self.FORMAT))
         self.id = pickle.loads(self.cs.recv(msg_len))
+
+        log.log(os.path.basename(__file__), log.csh, f"Client ID: {self.id}")
 
         bD.socket = self.cs
         bD.address = self.server_addr

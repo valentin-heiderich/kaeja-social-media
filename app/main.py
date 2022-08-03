@@ -11,7 +11,7 @@ import os
 class app:
     def __init__(self):
         """log"""
-        log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
+        log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.current_thread()}")
         self.gui = None
         self.s_conn = None
         self.TtS = None

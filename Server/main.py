@@ -14,7 +14,7 @@ class Server:
 
     def start(self):
         self.socket = threading.Thread(target=ServerSocket).start()
-        self.console = threading.Thread(target=console).start()
+        # self.console = threading.Thread(target=console).start()
 
         posts.load_posts()
 

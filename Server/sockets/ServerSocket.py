@@ -30,8 +30,5 @@ class ServerSocket:
     def accept_clients(self):
         while bD.running:
             (cs, client_addr) = self.socket.accept()
-
             log.log(os.path.basename(__file__), log.SERVER, f"Client {client_addr} has connected to the Server")
-
-            client_handler = threading.Thread(target=hCC.clientHandler, args=(cs, client_addr))
-            client_handler.start()
+            threading.Thread(target=hCC.clientHandler, args=(cs, client_addr)).start()

@@ -25,7 +25,8 @@ class ClientServerHandler:
         self.declare_threads()
         self.handle_runtime()
 
-        self.update = self.event = Clock.schedule_interval(partial(self.ask_for_update), 5)
+        self.update = None
+        self.event = Clock.schedule_interval(partial(self.ask_for_update), 5)
 
     def declare_threads(self):
         self.recv = threading.Thread(target=re.recv, args=(self.client_socket, self.server_address))
@@ -40,4 +41,5 @@ class ClientServerHandler:
         pass
 
     def ask_for_update(self, dt):
+        logger.log(os.path.basename(__file__), logger.csh, f"Asking Server for update")
         send.send(None, bD.client_id, bD.MESSAGE_TYPE_UPDATE_FEED)
