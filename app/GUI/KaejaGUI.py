@@ -1,5 +1,5 @@
 from functools import partial
-from kivy.app import App
+from kivymd.app import MDApp
 from kivy.clock import Clock
 from kivy.properties import StringProperty
 from kivy.uix.boxlayout import BoxLayout
@@ -65,7 +65,7 @@ class Posts(GridLayout):
         event = Clock.schedule_interval(partial(update_feed, self), 30)
 
 
-class KaejaApp(App):
+class KaejaApp(MDApp):
     """This is the main GUI application"""
     def __init__(self):
         super().__init__()

@@ -13,7 +13,7 @@ import pickle
 class updateFeed:
     def __init__(self):
         """Create all vars and start functions/files"""
-        log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.currentThread()}")
+        log.log(os.path.basename(__file__), log.threading, f"Running on Thread: {threading.current_thread()}")
         self.start_time = time.time()
         self.server_addr = bD.server_address
         self.id = None

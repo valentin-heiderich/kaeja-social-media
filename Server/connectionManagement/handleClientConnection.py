@@ -31,12 +31,15 @@ class clientHandler:
             logger.log(os.path.basename(__file__), logger.csh, f"Received message: {str(msg)}")
 
             if b_header == "00001":
-                msg = self.g100p()
-                send.send(self.cs, msg)
+                respond = self.g100p()
+                send.send(self.cs, respond)
             elif b_header == "00010":
                 bD.posts.append(msg)
             elif b_header == "00011":
                 pass
+            elif b_header == "00100":
+                account_id = uuid.uuid4()
+                bD.accounts.update({account_id: msg})
 
     def g100p(self):
         self.new_posts = bD.posts[-100:]

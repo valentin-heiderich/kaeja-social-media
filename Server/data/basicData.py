@@ -1,5 +1,6 @@
 # runtime
 posts = []
+accounts = {}
 running = False
 
 # predefined
