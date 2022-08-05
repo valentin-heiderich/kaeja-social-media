@@ -9,3 +9,7 @@ class HoverIconButton(MDIconButton, ThemableBehavior, HoverBehavior):
         self.background = background_color
         self.hovered_color = hovered_bg_color
         self.icon = icon
+    def on_enter(self, *args):
+        self.md_bg_color = self.hovered_color
+    def on_leave(self, *args):
+        self.md_bg_color = self.background
