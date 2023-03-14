@@ -2,6 +2,7 @@ import os
 import pickle
 
 # posts
+current_rendered_posts = pickle.dumps([])
 recv_posts = pickle.dumps([])
 
 # server data
